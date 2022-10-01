@@ -1,0 +1,1 @@
+export const BORDER_ROUNDING = "0.375em";

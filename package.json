@@ -1,0 +1,38 @@
+{
+  "name": "react-carpentry",
+  "version": "0.0.1",
+  "description": "React component library for my personal projects",
+  "main": "index.ts",
+  "repository": "https://github.com/Yiwmsh/react-carpentry",
+  "author": "Whismy",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "@emotion/react": "^11.10.4",
+    "@emotion/styled": "^11.10.4",
+    "@enact/storybook-utils": "^5.0.0",
+    "@storybook/addon-a11y": "^6.5.12",
+    "@types/react": "^18.0.21",
+    "prop-types": "^15.8.1",
+    "react": "^18.2.0",
+    "react-aria": "^3.19.0",
+    "react-dom": "^18.2.0",
+    "typescript": "^4.8.4"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.19.3",
+    "@storybook/addon-actions": "^6.5.12",
+    "@storybook/addon-essentials": "^6.5.12",
+    "@storybook/addon-interactions": "^6.5.12",
+    "@storybook/addon-links": "^6.5.12",
+    "@storybook/builder-webpack4": "^6.5.12",
+    "@storybook/manager-webpack4": "^6.5.12",
+    "@storybook/react": "^6.5.12",
+    "@storybook/testing-library": "^0.0.13",
+    "babel-loader": "^8.2.5"
+  },
+  "scripts": {
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  }
+}
