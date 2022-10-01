@@ -5,8 +5,8 @@ import { useButton } from "react-aria";
 import { AriaButtonProps } from "@react-types/button";
 import { BORDER_ROUNDING } from "../../../consts/measurements";
 
-const StyledButton = styled.button<{ visible: boolean }>`
-  display: inline-block;
+const StyledButton = styled.button<{ visible: boolean; display: boolean }>`
+  display: ${({ display }) => (display ? "inline-block" : "none")};
   visibility: ${({ visible }) => (visible ? "visible" : "hidden")};
   background-color: var(${SemanticColors.primary});
   font-weight: 600;
@@ -25,15 +25,25 @@ const StyledButton = styled.button<{ visible: boolean }>`
 
 export interface ButtonProps extends AriaButtonProps {
   visible?: boolean;
+  display?: boolean;
 }
 
-export const Button: React.FC<ButtonProps> = ({ visible, ...rest }) => {
+export const Button: React.FC<ButtonProps> = ({
+  visible,
+  display,
+  ...rest
+}) => {
   const ref = React.useRef(null);
   const { buttonProps } = useButton(rest, ref);
   const { children } = rest;
 
   return (
-    <StyledButton visible={visible ?? true} {...buttonProps} ref={ref}>
+    <StyledButton
+      display={display ?? true}
+      visible={visible ?? true}
+      {...buttonProps}
+      ref={ref}
+    >
       {children}
     </StyledButton>
   );

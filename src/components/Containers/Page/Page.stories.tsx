@@ -9,6 +9,10 @@ import { Card } from "../Card/Card";
 import { Button } from "../../Inputs/Button/Button";
 import { ButtonBank } from "../ButtonBank/ButtonBank";
 import { Title } from "../../Displays/Title";
+import { Navbar } from "../Navbar/Navbar";
+import { ScrollToButton } from "../../Inputs/ScrollToButton/ScrollToButton";
+import { PageSplashSimulator } from "../../../consts/testComponents";
+import styled from "@emotion/styled";
 
 const darkTheme = new Theme(DarkPalette);
 const lightTheme = new Theme(LightPalette);
@@ -32,9 +36,24 @@ export const PageWithScreenFrame: Story = () => (
   </ThemeProvider>
 );
 
+const CenteredCard = styled(Card)`
+  position: absolute;
+  width: 20vw;
+  height: 20vw;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+`;
+
 export const PopulatedPage: Story = () => (
   <ThemeProvider theme={darkTheme}>
     <Page>
+      <CenteredCard>Test Card</CenteredCard>
+      <PageSplashSimulator backgroundColor="#a4d4ff"></PageSplashSimulator>
+      <Navbar>
+        <ScrollToButton target={0}>Return to Top</ScrollToButton>
+      </Navbar>
       <ScreenFrame>
         <Title>Title</Title>
         <Card>

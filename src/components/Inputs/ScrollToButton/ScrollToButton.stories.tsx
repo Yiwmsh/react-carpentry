@@ -16,8 +16,8 @@ export const Primary: Story = () => (
     <Navbar>
       <ScrollToButton target={0}>Scroll to Top</ScrollToButton>
       <p>
-        This text should be at the beginning of the nav-bar if the scroll button
-        isn't visible.
+        This text should leave space for the scroll button even if it isn't
+        visible.
       </p>
     </Navbar>
     <PageSplashSimulator />

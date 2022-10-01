@@ -1,8 +1,9 @@
 import styled from "@emotion/styled";
-import { SemanticColors } from "../types/Color";
+import { Color, SemanticColors } from "../types/Color";
 
-export const PageSplashSimulator = styled.div`
+export const PageSplashSimulator = styled.div<{ backgroundColor?: Color }>`
   width: 100vw;
-  background-color: var(${SemanticColors.background});
-  height: 200vh;
+  background-color: ${({ backgroundColor }) =>
+    backgroundColor ?? `var(${SemanticColors.background})`};
+  height: 100vh;
 `;
