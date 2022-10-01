@@ -10,7 +10,7 @@ import { Button } from "../../Inputs/Button/Button";
 import { ButtonBank } from "../ButtonBank/ButtonBank";
 import { Title } from "../../Displays/Title";
 import { Navbar } from "../Navbar/Navbar";
-import { ScrollToButton } from "../../Inputs/ScrollToButton/ScrollToButton";
+import { ScrollToButton } from "../../Inputs/Button/ScrollToButton/ScrollToButton";
 import { PageSplashSimulator } from "../../../consts/testComponents";
 import styled from "@emotion/styled";
 

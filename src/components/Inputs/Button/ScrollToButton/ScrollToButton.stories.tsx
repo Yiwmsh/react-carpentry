@@ -1,10 +1,10 @@
 import React from "react";
 import { Story } from "@storybook/react";
-import { ThemeProvider } from "../../ThemeProvider";
-import { darkTheme, lightTheme } from "../../../consts/theme";
+import { ThemeProvider } from "../../../ThemeProvider";
+import { darkTheme, lightTheme } from "../../../../consts/theme";
 import { ScrollToButton } from "./ScrollToButton";
-import { Navbar } from "../../Containers/Navbar/Navbar";
-import { PageSplashSimulator } from "../../../consts/testComponents";
+import { Navbar } from "../../../Containers/Navbar/Navbar";
+import { PageSplashSimulator } from "../../../../consts/testComponents";
 
 export default {
   title: "ScrollToButton",

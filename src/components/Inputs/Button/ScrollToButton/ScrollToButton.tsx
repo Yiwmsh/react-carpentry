@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { useState } from "react";
-import { SemanticColors } from "../../../types/Color";
-import { Button } from "../Button/Button";
+import { SemanticColors } from "../../../../types/Color";
+import { Button } from "../Button";
 import React from "react";
 
 interface ScrollToButtonProps {
