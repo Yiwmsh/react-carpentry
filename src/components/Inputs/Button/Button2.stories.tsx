@@ -4,7 +4,7 @@ import { Story } from "@storybook/react";
 import styled from "@emotion/styled";
 import { ThemeProvider } from "../../ThemeProvider";
 import { LightPalette } from "../../../consts/colors";
-import { defaultTheme } from "../../../consts/theme";
+import { lightTheme } from "../../../consts/theme";
 
 export default {
   title: "Button2",
@@ -17,7 +17,7 @@ const CustomButton2 = styled(Button)`
 `;
 
 export const Primary: Story = () => (
-  <ThemeProvider theme={defaultTheme}>
+  <ThemeProvider theme={lightTheme}>
     <CustomButton2>skhbgiqbe;lt</CustomButton2>
   </ThemeProvider>
 );

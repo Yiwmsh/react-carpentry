@@ -3,6 +3,9 @@ import { SemanticColors } from "../../../types/Color";
 import { Primary } from "./Navbar.stories";
 
 export const Navbar = styled.nav`
+  color: var(${SemanticColors.altText});
+  display: flex;
+  flex-direction: row;
   width: 100vw;
   background-color: var(${SemanticColors.primary});
   position: sticky;

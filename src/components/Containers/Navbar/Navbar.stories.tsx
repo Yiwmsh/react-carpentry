@@ -10,15 +10,10 @@ import { ButtonBank } from "../ButtonBank/ButtonBank";
 import { Title } from "../../Displays/Title";
 import { Navbar } from "./Navbar";
 import styled from "@emotion/styled";
+import { PageSplashSimulator } from "../../../consts/testComponents";
 
 const darkTheme = new Theme(DarkPalette);
 const lightTheme = new Theme(LightPalette);
-
-const PageSplashSimulator = styled.div`
-  width: 100vw;
-  background-color: pink;
-  height: 200vh;
-`;
 
 export default {
   title: "Navbar",
@@ -32,6 +27,13 @@ export const Primary: Story = () => (
       stick to the top of your screen. When you scroll back up past its original
       location, it should remain in its original location.
     </PageSplashSimulator>
+    <Navbar>Test</Navbar>
+    <PageSplashSimulator />
+  </ThemeProvider>
+);
+
+export const TopOfPage: Story = () => (
+  <ThemeProvider theme={darkTheme}>
     <Navbar>Test</Navbar>
     <PageSplashSimulator />
   </ThemeProvider>
