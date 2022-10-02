@@ -9,6 +9,7 @@ import { CardToolbar } from "./CardToolbar";
 import { CardHeader } from "./CardHeader";
 import { CardBody } from "./CardBody";
 import { SemanticColors } from "../../../types/Color";
+import { CardImage } from "./CardImage";
 
 export default {
   title: "Card",
@@ -50,6 +51,9 @@ export const CardProperties: Story = () => (
   </ThemeProvider>
 );
 
+const testImgSrc =
+  "https://images.pexels.com/photos/2662116/pexels-photo-2662116.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
+
 export const CompositeCard: Story = () => (
   <ThemeProvider theme={theme}>
     <Card centered="horizontally">
@@ -59,6 +63,11 @@ export const CompositeCard: Story = () => (
       <CardHeader>
         <h1>It also has a header!</h1>
       </CardHeader>
+      <CardImage
+        src={testImgSrc}
+        alt="A landscape depicting a river winding through snowy mountains on the left, and amber hills on the right. At the base of the hills, on the right bank of the river, is a multitude of pine trees. The branches of a pine tree intrude in the foreground of the image on the left side - they are the nearest object."
+        subtitle="Test Subtitle"
+      />
       <CardBody centerContents={false}>
         Oh, and, would you look at that, it's even got a body, too! Here's a
         bunch of filler text,

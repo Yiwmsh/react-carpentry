@@ -1,10 +1,12 @@
 import styled from "@emotion/styled";
 import { SemanticColors } from "../../../types/Color";
 
-export const TextContent = styled.div<{
+export interface TextContentProps {
   altColor?: boolean;
   color?: SemanticColors;
-}>`
+}
+
+export const TextContent = styled.div<TextContentProps>`
   margin: 0;
   color: var(
     ${({ altColor, color }) => {
