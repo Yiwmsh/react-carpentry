@@ -3,12 +3,12 @@ import { Story } from "@storybook/react";
 import { DarkPalette, LightPalette } from "../../../consts/colors";
 import { Theme } from "../../../types/Theme";
 import { ThemeProvider } from "../../ThemeProvider";
-import { Page } from "./Page";
-import { ScreenFrame } from "../Screen/ScreenFrame";
+import { ScreenFrame } from "./ScreenFrame";
+import { Page } from "../Screen/Page";
 import { Card } from "../Card/Card";
 import { Button } from "../../Inputs/Button/Button";
 import { ButtonBank } from "../ButtonBank/ButtonBank";
-import { Title } from "../../Displays/Title";
+import { Title } from "../../Displays/Title/Title";
 import { Navbar } from "../Navbar/Navbar";
 import { ScrollToButton } from "../../Inputs/Button/ScrollToButton/ScrollToButton";
 import { PageSplashSimulator } from "../../../consts/testComponents";
@@ -18,21 +18,21 @@ const darkTheme = new Theme(DarkPalette);
 const lightTheme = new Theme(LightPalette);
 
 export default {
-  title: "Page",
-  component: Page,
+  title: "ScreenFrame",
+  component: ScreenFrame,
 };
 
 export const Primary: Story = () => (
   <ThemeProvider theme={darkTheme}>
-    <Page>Test</Page>
+    <ScreenFrame>Test</ScreenFrame>
   </ThemeProvider>
 );
 
 export const PageWithScreenFrame: Story = () => (
   <ThemeProvider theme={darkTheme}>
-    <Page>
-      <ScreenFrame>Test</ScreenFrame>
-    </Page>
+    <ScreenFrame>
+      <Page>Test</Page>
+    </ScreenFrame>
   </ThemeProvider>
 );
 
@@ -48,13 +48,13 @@ const CenteredCard = styled(Card)`
 
 export const PopulatedPage: Story = () => (
   <ThemeProvider theme={darkTheme}>
-    <Page>
+    <ScreenFrame>
       <CenteredCard>Test Card</CenteredCard>
       <PageSplashSimulator backgroundColor="#a4d4ff"></PageSplashSimulator>
       <Navbar>
         <ScrollToButton target={0}>Return to Top</ScrollToButton>
       </Navbar>
-      <ScreenFrame>
+      <Page>
         <Title>Title</Title>
         <Card>
           <h1>Heading</h1>
@@ -76,7 +76,7 @@ export const PopulatedPage: Story = () => (
             <Button>Test Button</Button>
           </ButtonBank>
         </Card>
-      </ScreenFrame>
-    </Page>
+      </Page>
+    </ScreenFrame>
   </ThemeProvider>
 );
