@@ -11,7 +11,7 @@ export class Theme {
             primary: pallate.primary,
             midground: pallate.midground ?? pallate.background,            
             foreground: pallate.foreground ?? pallate.background,
-            shadow: pallate.shadow,
+            shadow: pallate.shadow ?? `rgba(0, 0, 0, 0.08)`,
             primaryActive: pallate.primaryActive ?? pallate.primary,
             primaryDisabled: pallate.primaryDisabled ?? pallate.primary,
             secondary: pallate.secondary ?? pallate.primary,
