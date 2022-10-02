@@ -5,7 +5,7 @@ import { Button } from "../Button";
 import React from "react";
 
 interface ScrollToButtonProps {
-  target: number;
+  target: number | React.MutableRefObject<any>;
   behavior?: "smooth" | "auto";
   children?: React.ReactNode;
 }
@@ -26,12 +26,19 @@ export const ScrollToButton: React.FC<ScrollToButtonProps> = ({
     }
   };
 
-  const scroll = (target: number, behavior: "smooth" | "auto") => {
+  const scroll = (
+    target: number | React.MutableRefObject<any>,
+    behavior: "smooth" | "auto"
+  ) => {
     console.log("scrolling");
-    window.scrollTo({
-      top: target,
-      behavior: behavior,
-    });
+    if (typeof target === "number") {
+      window.scrollTo({
+        top: target,
+        behavior: behavior,
+      });
+    } else {
+      target?.current?.scrollIntoView?.();
+    }
   };
 
   window.addEventListener("scroll", toggleVisible);
