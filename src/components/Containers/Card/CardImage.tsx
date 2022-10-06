@@ -1,7 +1,10 @@
 import styled from "@emotion/styled";
 import React from "react";
 import { CARD_CONTENT_VERTICAL_MARGIN } from "../../../consts/measurements";
-import { TextContent, TextContentProps } from "../../Displays/Text/TextContent";
+import {
+  TextContent,
+  TextContentProps,
+} from "../../Displays/TextContent/TextContent";
 
 const StyledCardImage = styled.img`
   max-width: 100%;

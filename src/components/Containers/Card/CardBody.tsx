@@ -6,6 +6,7 @@ export const CardBody = styled.div<{ centerContents?: boolean }>`
     centerContents
       ? css`
           text-align: center;
+          justify-content: center;
         `
       : ""}
   display: flex;
