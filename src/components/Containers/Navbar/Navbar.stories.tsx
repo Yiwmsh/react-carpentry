@@ -37,7 +37,7 @@ export const Primary: Story = () => (
 
 export const TopOfPage: Story = () => (
   <ThemeProvider theme={darkTheme}>
-    <Navbar>Test</Navbar>
+    <Navbar position="fixed">Test</Navbar>
     <PageSplashSimulator />
   </ThemeProvider>
 );
