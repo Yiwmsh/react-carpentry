@@ -77,3 +77,15 @@ export const CompositeCard: Story = () => (
     </Card>
   </ThemeProvider>
 );
+
+export const NestedCard: Story = () => (
+  <ThemeProvider theme={theme}>
+    <Card>
+      <CardBody>
+        This is a card
+        <Card>This is a card inside a card</Card>
+        Here's some stuff below the nested card
+      </CardBody>
+    </Card>
+  </ThemeProvider>
+);
