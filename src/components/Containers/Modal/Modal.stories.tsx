@@ -8,7 +8,9 @@ import { ThemeProvider } from "../../ThemeProvider";
 import { ButtonBank } from "../ButtonBank/ButtonBank";
 import { Card } from "../Card/Card";
 import { CardBody } from "../Card/CardBody";
+import { motion, AnimatePresence } from "framer-motion/dist/framer-motion";
 import { Modal } from "./Modal";
+import { CardFooter } from "../Card/CardFooter";
 
 export default {
   title: "Modal",
@@ -18,7 +20,7 @@ export default {
 const theme = new Theme(LightPalette);
 
 export const Primary: Story = () => {
-  const [showModal, setShowModal] = React.useState(false);
+  const [showModal, setShowModal] = React.useState(true);
   const [dimmed, setDimmed] = React.useState(true);
 
   return (
@@ -29,10 +31,14 @@ export const Primary: Story = () => {
           <CardBody centerContents>
             <TextContent>This is a card inside a modal! Wow!</TextContent>
           </CardBody>
-          <ButtonBank>
-            <Button onPress={() => setShowModal(!showModal)}>Hide Modal</Button>
-            <Button onPress={() => setDimmed(!dimmed)}>Dimmed?</Button>
-          </ButtonBank>
+          <CardFooter>
+            <ButtonBank>
+              <Button onPress={() => setShowModal(!showModal)}>
+                Hide Modal
+              </Button>
+              <Button onPress={() => setDimmed(!dimmed)}>Dimmed?</Button>
+            </ButtonBank>
+          </CardFooter>
         </Card>
       </Modal>
     </ThemeProvider>
