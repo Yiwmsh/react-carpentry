@@ -11,6 +11,7 @@ import { Title } from "../../Displays/Title/Title";
 import { Navbar } from "./Navbar";
 import styled from "@emotion/styled";
 import { PageSplashSimulator } from "../../../consts/testComponents";
+import { TextContent } from "../../Displays/TextContent/TextContent";
 
 const darkTheme = new Theme(DarkPalette);
 const lightTheme = new Theme(LightPalette);
@@ -23,9 +24,11 @@ export default {
 export const Primary: Story = () => (
   <ThemeProvider theme={darkTheme}>
     <PageSplashSimulator>
-      Scroll down to see the navbar. When you scroll past the nav-bar, it should
-      stick to the top of your screen. When you scroll back up past its original
-      location, it should remain in its original location.
+      <TextContent>
+        Scroll down to see the navbar. When you scroll past the nav-bar, it
+        should stick to the top of your screen. When you scroll back up past its
+        original location, it should remain in its original location.
+      </TextContent>
     </PageSplashSimulator>
     <Navbar>Test</Navbar>
     <PageSplashSimulator />
