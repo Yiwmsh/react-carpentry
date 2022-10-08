@@ -2,8 +2,8 @@ import React from "react";
 import { Story } from "@storybook/react";
 import { DarkPalette, LightPalette } from "../../../consts/colors";
 import { Theme } from "../../../types/Theme";
-import { ThemeProvider } from "../../ThemeProvider";
-import { Page } from "../Screen/Page";
+import { ThemeContext } from "../../ThemeContext";
+import { Page } from "../Page/Page";
 import { Card } from "../Card/Card";
 import { Button } from "../../Inputs/Button/Button";
 import { ButtonBank } from "../ButtonBank/ButtonBank";
@@ -22,7 +22,7 @@ export default {
 };
 
 export const Primary: Story = () => (
-  <ThemeProvider theme={darkTheme}>
+  <ThemeContext theme={darkTheme}>
     <PageSplashSimulator>
       <TextContent>
         Scroll down to see the navbar. When you scroll past the nav-bar, it
@@ -32,12 +32,12 @@ export const Primary: Story = () => (
     </PageSplashSimulator>
     <Navbar>Test</Navbar>
     <PageSplashSimulator />
-  </ThemeProvider>
+  </ThemeContext>
 );
 
 export const TopOfPage: Story = () => (
-  <ThemeProvider theme={darkTheme}>
+  <ThemeContext theme={darkTheme}>
     <Navbar position="fixed">Test</Navbar>
     <PageSplashSimulator />
-  </ThemeProvider>
+  </ThemeContext>
 );

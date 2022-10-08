@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "./Button";
 import { Story } from "@storybook/react";
-import { ThemeProvider } from "../../ThemeProvider";
+import { ThemeContext } from "../../ThemeContext";
 import { lightTheme } from "../../../consts/theme";
 
 export default {
@@ -10,7 +10,7 @@ export default {
 };
 
 export const Primary: Story = () => (
-  <ThemeProvider theme={lightTheme}>
+  <ThemeContext theme={lightTheme}>
     <Button>Test Button</Button>
-  </ThemeProvider>
+  </ThemeContext>
 );

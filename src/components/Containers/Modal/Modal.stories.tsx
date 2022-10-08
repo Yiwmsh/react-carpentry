@@ -4,7 +4,7 @@ import { LightPalette } from "../../../consts/colors";
 import { Theme } from "../../../types/Theme";
 import { TextContent } from "../../Displays/TextContent/TextContent";
 import { Button } from "../../Inputs/Button/Button";
-import { ThemeProvider } from "../../ThemeProvider";
+import { ThemeContext } from "../../ThemeContext";
 import { ButtonBank } from "../ButtonBank/ButtonBank";
 import { Card } from "../Card/Card";
 import { CardBody } from "../Card/CardBody";
@@ -24,7 +24,7 @@ export const Primary: Story = () => {
   const [dimmed, setDimmed] = React.useState(true);
 
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeContext theme={theme}>
       <Button onPress={() => setShowModal(!showModal)}>Show Modal</Button>
       <Modal dimmed={dimmed} show={showModal}>
         <Card centered="both" width="20%" height="20%">
@@ -41,6 +41,6 @@ export const Primary: Story = () => {
           </CardFooter>
         </Card>
       </Modal>
-    </ThemeProvider>
+    </ThemeContext>
   );
 };

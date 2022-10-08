@@ -2,9 +2,9 @@ import React from "react";
 import { Story } from "@storybook/react";
 import { DarkPalette, LightPalette } from "../../../consts/colors";
 import { Theme } from "../../../types/Theme";
-import { ThemeProvider } from "../../ThemeProvider";
+import { ThemeContext } from "../../ThemeContext";
 import { ScreenFrame } from "./ScreenFrame";
-import { Page } from "../Screen/Page";
+import { Page } from "../Page/Page";
 import { Card } from "../Card/Card";
 import { Button } from "../../Inputs/Button/Button";
 import { ButtonBank } from "../ButtonBank/ButtonBank";
@@ -23,17 +23,17 @@ export default {
 };
 
 export const Primary: Story = () => (
-  <ThemeProvider theme={darkTheme}>
+  <ThemeContext theme={darkTheme}>
     <ScreenFrame>Test</ScreenFrame>
-  </ThemeProvider>
+  </ThemeContext>
 );
 
 export const PageWithScreenFrame: Story = () => (
-  <ThemeProvider theme={darkTheme}>
+  <ThemeContext theme={darkTheme}>
     <ScreenFrame>
       <Page>Test</Page>
     </ScreenFrame>
-  </ThemeProvider>
+  </ThemeContext>
 );
 
 const CenteredCard = styled(Card)`
@@ -47,7 +47,7 @@ const CenteredCard = styled(Card)`
 `;
 
 export const PopulatedPage: Story = () => (
-  <ThemeProvider theme={darkTheme}>
+  <ThemeContext theme={darkTheme}>
     <ScreenFrame>
       <CenteredCard>Test Card</CenteredCard>
       <PageSplashSimulator backgroundColor="#a4d4ff"></PageSplashSimulator>
@@ -78,5 +78,5 @@ export const PopulatedPage: Story = () => (
         </Card>
       </Page>
     </ScreenFrame>
-  </ThemeProvider>
+  </ThemeContext>
 );

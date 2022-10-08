@@ -1,6 +1,5 @@
 import React from "react";
 import { Story } from "@storybook/react";
-import { ThemeProvider } from "../../../ThemeProvider";
 import { darkTheme, lightTheme } from "../../../../consts/theme";
 import { ScrollToButton } from "./ScrollToButton";
 import { Navbar } from "../../../Containers/Navbar/Navbar";
@@ -12,7 +11,7 @@ export default {
 };
 
 export const Primary: Story = () => (
-  <ThemeProvider theme={darkTheme}>
+  <ThemeContext theme={darkTheme}>
     <Navbar>
       <ScrollToButton target={0}>Scroll to Top</ScrollToButton>
       <p>
@@ -23,5 +22,5 @@ export const Primary: Story = () => (
     <PageSplashSimulator />
     <PageSplashSimulator />
     <PageSplashSimulator />
-  </ThemeProvider>
+  </ThemeContext>
 );

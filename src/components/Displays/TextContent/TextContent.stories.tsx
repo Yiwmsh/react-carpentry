@@ -7,7 +7,7 @@ import { Card } from "../../Containers/Card/Card";
 import { CardBody } from "../../Containers/Card/CardBody";
 import { CardHeader } from "../../Containers/Card/CardHeader";
 import { CardToolbar } from "../../Containers/Card/CardToolbar";
-import { ThemeProvider } from "../../ThemeProvider";
+import { ThemeContext } from "../../ThemeContext";
 import { TextContent } from "./TextContent";
 
 export default {
@@ -19,7 +19,7 @@ const darkTheme = new Theme(DarkPalette);
 const lightTheme = new Theme(LightPalette);
 
 export const LightModeText: Story = () => (
-  <ThemeProvider theme={lightTheme}>
+  <ThemeContext theme={lightTheme}>
     <Card centered="horizontally">
       <CardToolbar justifyContent="center">
         <TextContent altColor>This text should be visible.</TextContent>
@@ -38,5 +38,5 @@ export const LightModeText: Story = () => (
         </TextContent>
       </CardBody>
     </Card>
-  </ThemeProvider>
+  </ThemeContext>
 );

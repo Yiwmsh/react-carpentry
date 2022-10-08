@@ -4,7 +4,7 @@ import * as React from "react";
 import { SemanticColors } from "../types/Color";
 import { Theme } from "../types/Theme";
 
-export const ThemeProvider = styled.div<{
+export const ThemeContext = styled.div<{
   theme: Theme;
 }>`
   ${({ theme }) => {

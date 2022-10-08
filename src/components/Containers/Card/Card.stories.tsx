@@ -3,7 +3,7 @@ import { Story } from "@storybook/react";
 import { Card } from "./Card";
 import { DarkPalette, LightPalette } from "../../../consts/colors";
 import { Theme } from "../../../types/Theme";
-import { ThemeProvider } from "../../ThemeProvider";
+import { ThemeContext } from "../../ThemeContext";
 import { Button } from "../../Inputs/Button/Button";
 import { CardToolbar } from "./CardToolbar";
 import { CardHeader } from "./CardHeader";
@@ -20,42 +20,42 @@ const theme = new Theme(LightPalette);
 
 export const Primary: Story = () => {
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeContext theme={theme}>
       <Card>
         This is a card. Cards should be the same color as the background, should
         fill their containers, and should have a subtle drop shadow to
         distinguish their borders. Cards should be display: flex and
         flex-direction: column. Cards should hide overflow.
       </Card>
-    </ThemeProvider>
+    </ThemeContext>
   );
 };
 
 export const CardWithButton: Story = () => (
-  <ThemeProvider theme={theme}>
+  <ThemeContext theme={theme}>
     <Card>
       This is a card
       <div>
         <Button>Test Button</Button>
       </div>
     </Card>
-  </ThemeProvider>
+  </ThemeContext>
 );
 
 export const CardProperties: Story = () => (
-  <ThemeProvider theme={theme}>
+  <ThemeContext theme={theme}>
     <Card height="30%" width="30%" centered="both">
       This card should be 30% of its container's dimensions. It should also be
       centered.
     </Card>
-  </ThemeProvider>
+  </ThemeContext>
 );
 
 const testImgSrc =
   "https://images.pexels.com/photos/2662116/pexels-photo-2662116.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
 
 export const CompositeCard: Story = () => (
-  <ThemeProvider theme={theme}>
+  <ThemeContext theme={theme}>
     <Card centered="horizontally">
       <CardToolbar justifyContent="space-evenly">
         <b>This Card Has a Toolbar</b>
@@ -75,11 +75,11 @@ export const CompositeCard: Story = () => (
         Did you get all of that? That should all wrap properly.
       </CardBody>
     </Card>
-  </ThemeProvider>
+  </ThemeContext>
 );
 
 export const NestedCard: Story = () => (
-  <ThemeProvider theme={theme}>
+  <ThemeContext theme={theme}>
     <Card>
       <CardBody>
         This is a card
@@ -87,5 +87,5 @@ export const NestedCard: Story = () => (
         Here's some stuff below the nested card
       </CardBody>
     </Card>
-  </ThemeProvider>
+  </ThemeContext>
 );
