@@ -4,6 +4,7 @@ import { darkTheme, lightTheme } from "../../../../consts/theme";
 import { ScrollToButton } from "./ScrollToButton";
 import { Navbar } from "../../../Containers/Navbar/Navbar";
 import { PageSplashSimulator } from "../../../../consts/testComponents";
+import { ThemeContext } from "../../../ThemeContext";
 
 export default {
   title: "ScrollToButton",
