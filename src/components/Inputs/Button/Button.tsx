@@ -41,10 +41,9 @@ export const Button: React.FC<ButtonProps> = ({
     <StyledButton
       display={display ?? true}
       visible={visible ?? true}
-      {...buttonProps}
       ref={ref}
-    >
-      {children}
-    </StyledButton>
+      {...rest}
+      {...buttonProps}
+    />
   );
 };

@@ -1,6 +1,7 @@
 import React from "react";
 import { Story } from "@storybook/react";
 import { Card } from "./Card";
+import styled from "@emotion/styled";
 import { DarkPalette, LightPalette } from "../../../consts/colors";
 import { Theme } from "../../../types/Theme";
 import { ThemeContext } from "../../ThemeContext";
@@ -87,5 +88,15 @@ export const NestedCard: Story = () => (
         Here's some stuff below the nested card
       </CardBody>
     </Card>
+  </ThemeContext>
+);
+
+const RestyledCard = styled(Card)`
+  background-color: var(${SemanticColors.primary});
+`;
+
+export const RestyledCardStory: Story = () => (
+  <ThemeContext theme={theme}>
+    <RestyledCard>This card should have a red background!</RestyledCard>
   </ThemeContext>
 );
