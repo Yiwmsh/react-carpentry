@@ -7,12 +7,3 @@ export const lightTheme: Theme = {
 export const darkTheme: Theme = {
     palette: DarkPalette,
 }
-
-const theme: Theme = {
-    palette: {
-        background: `#FFFFFF`,
-        text: `rgba(0, 0, 0, 1)`,
-        altText: `#FFFFFF`,
-        primary: 'rgb(150, 60, 50)'
-    }
-}
