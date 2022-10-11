@@ -133,3 +133,15 @@ This button takes a `target` prop, which can be either a Number or a Ref to anot
     </Navbar>
   </ThemeContext>
 ```
+
+### Checkbox
+A custom Checkbox component animated with `Framer Motion` and leveraging `react-aria` for accessibility. It will use your Theme's colors.
+
+![Checkbox](https://user-images.githubusercontent.com/110123778/194994171-d55a2e60-76de-475f-b50b-2274a8e17be9.gif)
+
+Implimentation: 
+```jsx
+<ThemeContext theme={lightTheme}>
+    <Checkbox>This is a test checkbox!</Checkbox>
+  </ThemeContext>
+```
