@@ -1,8 +1,4 @@
-import {
-  motion,
-  useMotionValue,
-  useTransform,
-} from "framer-motion/dist/framer-motion";
+import { motion } from "framer-motion/dist/framer-motion";
 import React from "react";
 import styled from "@emotion/styled";
 import {
