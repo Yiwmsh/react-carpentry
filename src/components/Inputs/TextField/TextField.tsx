@@ -14,6 +14,25 @@ interface TextFieldProps extends AriaTextFieldOptions<"input"> {
   errorRender?: React.ReactNode;
 }
 
+/*
+    TODO Style this component's constituents.
+    Just figure out a good general stylistic approach, the goal is for this component to be easily restylable.
+    TODO Figure out how to allow pass-through of special renders.
+    Something like:
+        {labelRender ? (
+            <labelRender {...labelProps}>
+                {label}
+            </labelRender>
+        ) : (
+            <TextFieldLabel {...labelProps}>
+                <TextContent>{label}</TextContent>
+            </TextFieldLabel>
+    )}
+    TODO Figure out why I can't restyle this component
+            const RestyledTextField = styled(TextField)``;
+        doesn't work.
+*/
+
 const TextFieldContainer = styled.div`
   display: flex;
   flex-direction: column;
