@@ -1,4 +1,4 @@
-import { PropsOf } from "@emotion/react";
+import { css, PropsOf } from "@emotion/react";
 import styled from "@emotion/styled";
 import { SectionElement } from "@react-types/shared";
 import React from "react";
@@ -11,14 +11,33 @@ interface ScrollSectionProps
     React.HTMLAttributes<HTMLElement>,
     HTMLElement
   > {
-  backgroundColor: Color;
+  backgroundColor?: Color;
+  backgroundImg?: string;
 }
 
-const StyledScrollSection = styled.section<{ backgroundColor: Color }>`
+const StyledScrollSection = styled.section<{
+  backgroundColor?: Color;
+  backgroundImg?: string;
+}>`
   height: 100vh;
   width: var(${VIEW_PORT_WIDTH});
-  background-color: ${({ backgroundColor }) => backgroundColor};
   scroll-snap-align: center;
+
+  margin: 5px 0;
+
+  ${({ backgroundColor }) =>
+    backgroundColor
+      ? css`
+          background-color: ${backgroundColor};
+        `
+      : ""}
+
+  ${({ backgroundImg }) =>
+    backgroundImg
+      ? css`
+          background-image: url(${backgroundImg});
+        `
+      : ""}
 `;
 
 export const ScrollSection: React.FC<ScrollSectionProps> = ({ ...props }) => {
