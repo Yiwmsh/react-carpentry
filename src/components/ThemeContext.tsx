@@ -1,10 +1,11 @@
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import * as React from "react";
+import { SCROLL_BAR_WIDTH, VIEW_PORT_WIDTH } from "../consts/measurements";
 import { SemanticColors } from "../types/Color";
 import { Theme } from "../types/Theme";
 
-export const ThemeContext = styled.div<{
+const ThemeContextCSS = styled.div<{
   theme: Theme;
 }>`
   ${({ theme }) => {
@@ -21,6 +22,19 @@ export const ThemeContext = styled.div<{
       ${SemanticColors.secondaryActive}: ${theme.palette.secondaryActive};
       ${SemanticColors.secondaryDisabled}: ${theme.palette.secondaryDisabled};
       ${SemanticColors.shadow}: ${theme.palette.shadow};
+
+      ${VIEW_PORT_WIDTH}: calc(100vw - var(${SCROLL_BAR_WIDTH}));
     `;
   }}
 `;
+
+export const ThemeContext: React.FC<{
+  theme: Theme;
+  children?: React.ReactNode;
+}> = ({ theme, children }) => {
+  const scrollbarWidth = window.innerWidth - document.body.clientWidth;
+  document.body.style.setProperty(SCROLL_BAR_WIDTH, `${scrollbarWidth}`);
+  document.body.style.setProperty("padding", "0px");
+
+  return <ThemeContextCSS theme={theme}>{children}</ThemeContextCSS>;
+};
