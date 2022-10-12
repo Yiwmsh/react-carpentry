@@ -2,13 +2,13 @@ import { Button, ButtonProps } from "../Button";
 import React from "react";
 
 interface ScrollToButtonProps extends ButtonProps {
-  scrollAnchor: number | React.MutableRefObject<any>;
+  scrollTarget: number | React.MutableRefObject<any>;
   behavior?: "smooth" | "auto";
 }
 
 export const ScrollToButton: React.FC<ScrollToButtonProps> = ({
   behavior = "smooth",
-  scrollAnchor: scrollTarget,
+  scrollTarget,
   ...rest
 }) => {
   const scroll = (
