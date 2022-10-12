@@ -52,7 +52,7 @@ export const PopulatedPage: Story = () => (
       <CenteredCard>Test Card</CenteredCard>
       <PageSplashSimulator backgroundColor="#a4d4ff"></PageSplashSimulator>
       <Navbar>
-        <ScrollToButton target={0}>Return to Top</ScrollToButton>
+        <ScrollToButton scrollTarget={0}>Return to Top</ScrollToButton>
       </Navbar>
       <PageBody>
         <Title>Title</Title>
