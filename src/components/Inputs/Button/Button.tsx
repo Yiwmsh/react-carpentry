@@ -55,32 +55,30 @@ export const Button: React.FC<ButtonProps> = ({
     ? SemanticColors.secondaryDisabled
     : SemanticColors.primaryDisabled;
 
-  return unstyled ? (
+  const animations = unstyled
+    ? {}
+    : {
+        initial: {
+          scale: 1,
+          backgroundColor: `var(${defaultColor})`,
+        },
+        whileHover: {
+          scale: 1.05,
+          backgroundColor: `var(${activeColor})`,
+        },
+        whileFocus: {
+          scale: 1.05,
+          backgroundColor: `var(${activeColor})`,
+        },
+        whileTap: {
+          scale: 0.95,
+          backgroundColor: `var(${disabledColor})`,
+        },
+      };
+
+  return (
     <StyledButton
-      display={display ?? true}
-      visible={visible ?? true}
-      ref={ref}
-      {...rest}
-      {...buttonProps}
-    />
-  ) : (
-    <StyledButton
-      initial={{
-        scale: 1,
-        backgroundColor: `var(${defaultColor})`,
-      }}
-      whileHover={{
-        scale: 1.05,
-        backgroundColor: `var(${activeColor})`,
-      }}
-      whileFocus={{
-        scale: 1.05,
-        backgroundColor: `var(${activeColor})`,
-      }}
-      whileTap={{
-        scale: 0.95,
-        backgroundColor: `var(${disabledColor})`,
-      }}
+      {...animations}
       display={display ?? true}
       visible={visible ?? true}
       ref={ref}
