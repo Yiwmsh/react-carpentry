@@ -152,6 +152,7 @@ Example:
   </ScreenFrame>
 </ThemeContext>
 ```
+![ScrollToTopButton](https://user-images.githubusercontent.com/110123778/195233320-e8116395-06a9-4ce2-92ca-8940e07ea40f.gif)
 
 ### Checkbox
 
