@@ -27,6 +27,14 @@ ThemeContext is a top-level wrapping class that injects your Theme variables as 
 
 ## Containers
 
+### ScrollSnapper
+
+A `ScrollSnapper` is intended to be a second-from-top level container. It handles y-axis scroll snapping for its children, provided they have the `scroll-snap-align` css property set. `ScrollSnapper` is a page format, and is intended for use with `ScrollSection`s.
+
+#### ScrollSection
+
+A `ScrollSection` is a 100vh x 100vw container that has `scroll-snap-align: center`. It is inteded to go into a `ScrollSnapper`.
+
 ### ScreenFrame
 
 A ScreenFrame is intended to be a second-from-top level container that serves the purpose of bounding the ScreenFrame's content to the viewport's width and setting the background color as intended. On themes with a white background color this component's impact may not be noticable, but this is how my library achieves dark-mode functionality.
@@ -152,6 +160,7 @@ Example:
   </ScreenFrame>
 </ThemeContext>
 ```
+
 ![ScrollToTopButton](https://user-images.githubusercontent.com/110123778/195233320-e8116395-06a9-4ce2-92ca-8940e07ea40f.gif)
 
 ### Checkbox
