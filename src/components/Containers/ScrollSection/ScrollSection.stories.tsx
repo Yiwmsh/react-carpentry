@@ -42,3 +42,17 @@ export const Primary: Story = () => (
     </ScrollSnapper>
   </ThemeContext>
 );
+
+export const UnstyledSections: Story = () => (
+  <ThemeContext theme={darkTheme}>
+    <ScrollSnapper>
+      <ScrollSection>This section has no additional styling.</ScrollSection>
+
+      <ScrollSection>This section has no additional styling.</ScrollSection>
+
+      <ScrollSection>This section has no additional styling.</ScrollSection>
+
+      <ScrollSection>This section has no additional styling.</ScrollSection>
+    </ScrollSnapper>
+  </ThemeContext>
+);
