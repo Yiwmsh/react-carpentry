@@ -1,51 +1,32 @@
-import styled from "@emotion/styled";
-import { useState } from "react";
-import { SemanticColors } from "../../../../types/Color";
-import { Button } from "../Button";
+import { Button, ButtonProps } from "../Button";
 import React from "react";
 
-interface ScrollToButtonProps {
-  target: number | React.MutableRefObject<any>;
+interface ScrollToButtonProps extends ButtonProps {
+  scrollAnchor: number | React.MutableRefObject<any>;
   behavior?: "smooth" | "auto";
-  children?: React.ReactNode;
 }
 
 export const ScrollToButton: React.FC<ScrollToButtonProps> = ({
   behavior = "smooth",
-  target,
-  children,
+  scrollAnchor: scrollTarget,
+  ...rest
 }) => {
-  const [visible, setVisible] = useState(false);
-
-  const toggleVisible = () => {
-    const scrolled = document.documentElement.scrollTop;
-    if (scrolled > 300) {
-      setVisible(true);
-    } else if (scrolled <= 300) {
-      setVisible(false);
-    }
-  };
-
   const scroll = (
-    target: number | React.MutableRefObject<any>,
+    scrollTarget: number | React.MutableRefObject<any>,
     behavior: "smooth" | "auto"
   ) => {
     console.log("scrolling");
-    if (typeof target === "number") {
+    if (typeof scrollTarget === "number") {
       window.scrollTo({
-        top: target,
+        top: scrollTarget,
         behavior: behavior,
       });
     } else {
-      target?.current?.scrollIntoView?.();
+      scrollTarget?.current?.scrollIntoView?.();
     }
   };
 
-  window.addEventListener("scroll", toggleVisible);
-
   return (
-    <Button onPress={() => scroll(target, behavior)} visible={visible}>
-      {children}
-    </Button>
+    <Button onPress={() => scroll(scrollTarget, behavior)} {...rest}></Button>
   );
 };
