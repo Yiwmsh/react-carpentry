@@ -11,6 +11,6 @@ export default {
 
 export const Primary: Story = () => (
   <ThemeContext theme={lightTheme}>
-    <Button>Test Button</Button>
+    <Button onPress={() => alert("Button pressed!")}>Test Button</Button>
   </ThemeContext>
 );
