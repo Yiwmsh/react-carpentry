@@ -49,6 +49,12 @@ export const Button: React.FC<ButtonProps> = ({
     ? SemanticColors.secondary
     : SemanticColors.primary;
 
+  /* 
+      TODO Fix overlap of whileHover and whileFocus.
+      When a mouse user clicks a button they are hovering /and/ focusing it for a brief moment, before whileTap kicks in.
+      This leads to the saturation filters for whileHover and whileFocus stacking and putting the saturation through the roof.
+    */
+
   const animations = unstyled
     ? {}
     : {
