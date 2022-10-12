@@ -13,10 +13,6 @@ const StyledScrollToTopButton = styled(ScrollToButton)`
   font-size: 2em;
   padding: 0;
   background-color: transparent;
-
-  :hover {
-    background-color: transparent;
-  }
 `;
 
 export const ScrollToTopButton: React.FC<
@@ -32,6 +28,8 @@ export const ScrollToTopButton: React.FC<
       setVisible(false);
     }
   };
+
+  const upArrow = <>&uarr;</>;
 
   window.addEventListener("scroll", toggleVisible);
 
@@ -50,7 +48,7 @@ export const ScrollToTopButton: React.FC<
               },
             }}
           >
-            &uarr;
+            {upArrow}
           </motion.div>
         </StyledScrollToTopButton>
       )}
