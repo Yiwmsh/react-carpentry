@@ -6,6 +6,8 @@ import { PageSplashSimulator } from "../../../../consts/testComponents";
 import { ThemeContext } from "../../../ThemeContext";
 import { ScrollToTopButton } from "./ScrollToTopButton/ScrollToTopButton";
 import { TextContent } from "../../../Displays/TextContent/TextContent";
+import { ScreenFrame } from "../../../Containers/ScreenFrame/ScreenFrame";
+import { PageBody } from "../../../Containers/PageBody/PageBody";
 
 export default {
   title: "ScrollToButton",
@@ -14,10 +16,14 @@ export default {
 
 export const ScrollToTop: Story = () => (
   <ThemeContext theme={darkTheme}>
-    <ScrollToTopButton />
-    <TextContent>This is the top of the page!</TextContent>
-    <PageSplashSimulator />
-    <PageSplashSimulator />
-    <PageSplashSimulator />
+    <ScreenFrame>
+      <PageBody>
+        <ScrollToTopButton />
+        <TextContent>This is the top of the page!</TextContent>
+        <PageSplashSimulator />
+        <PageSplashSimulator />
+        <PageSplashSimulator />
+      </PageBody>
+    </ScreenFrame>
   </ThemeContext>
 );
