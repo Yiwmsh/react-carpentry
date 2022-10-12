@@ -52,9 +52,6 @@ export const CardProperties: Story = () => (
   </ThemeContext>
 );
 
-const testImgSrc =
-  "https://images.pexels.com/photos/2662116/pexels-photo-2662116.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
-
 export const CompositeCard: Story = () => (
   <ThemeContext theme={theme}>
     <Card centered="horizontally">
