@@ -2,14 +2,7 @@ import styled from "@emotion/styled";
 import { motion, AnimatePresence } from "framer-motion/dist/framer-motion";
 import React from "react";
 import { SemanticColors } from "../../../../../types/Color";
-import { ScrollToButton } from "../ScrollToButton";
-
-enum Position {
-  TopLeft,
-  TopRight,
-  BottomLeft,
-  BottomRight,
-}
+import { ScrollToButton, ScrollToButtonProps } from "../ScrollToButton";
 
 const StyledScrollToTopButton = styled(ScrollToButton)`
   position: fixed;
@@ -26,7 +19,9 @@ const StyledScrollToTopButton = styled(ScrollToButton)`
   }
 `;
 
-export const ScrollToTopButton: React.FC = () => {
+export const ScrollToTopButton: React.FC<
+  Omit<ScrollToButtonProps, "scrollTarget">
+> = (buttonProps) => {
   const [visible, setVisible] = React.useState(false);
 
   const toggleVisible = () => {
@@ -43,7 +38,7 @@ export const ScrollToTopButton: React.FC = () => {
   return (
     <AnimatePresence>
       {visible && (
-        <StyledScrollToTopButton unstyled scrollTarget={0}>
+        <StyledScrollToTopButton unstyled scrollTarget={0} {...buttonProps}>
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
