@@ -11,6 +11,7 @@ import { CardHeader } from "./CardHeader";
 import { CardBody } from "./CardBody";
 import { SemanticColors } from "../../../types/Color";
 import { CardImage } from "./CardImage";
+import { testImgSrc } from "../../../consts/testComponents";
 
 export default {
   title: "Card",
