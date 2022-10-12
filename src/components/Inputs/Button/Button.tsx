@@ -31,12 +31,14 @@ export interface ButtonProps extends AriaButtonProps {
   visible?: boolean;
   display?: boolean;
   secondaryColor?: boolean;
+  unstyled?: boolean;
 }
 
 export const Button: React.FC<ButtonProps> = ({
   visible,
   display,
   secondaryColor,
+  unstyled,
   ...rest
 }) => {
   const ref = React.useRef(null);
@@ -53,7 +55,15 @@ export const Button: React.FC<ButtonProps> = ({
     ? SemanticColors.secondaryDisabled
     : SemanticColors.primaryDisabled;
 
-  return (
+  return unstyled ? (
+    <StyledButton
+      display={display ?? true}
+      visible={visible ?? true}
+      ref={ref}
+      {...rest}
+      {...buttonProps}
+    />
+  ) : (
     <StyledButton
       initial={{
         scale: 1,
