@@ -28,7 +28,7 @@ export const Primary: Story = () => {
   return (
     <ThemeContext theme={theme}>
       <ScreenFrame>
-        <Card centered="both">
+        <Card centered="both" width="500px" height="500px">
           <SplashIcon
             src={testImgSrc}
             alt="A landscape depicting a river winding through snowy mountains on the left, and amber hills on the right. At the base of the hills, on the right bank of the river, is a multitude of pine trees. The branches of a pine tree intrude in the foreground of the image on the left side - they are the nearest object."

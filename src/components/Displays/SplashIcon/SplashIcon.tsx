@@ -1,15 +1,12 @@
 import styled from "@emotion/styled";
 import { motion, useScroll } from "framer-motion/dist/framer-motion";
-import { element } from "prop-types";
 import React from "react";
 
 const ImgContainer = styled(motion.div)`
+  display: flex;
   overflow: hidden;
-`;
-
-const FixedDiv = styled.div`
-  position: fixed;
-  top: 90%;
+  align-items: center;
+  justify-content: center;
 `;
 
 interface ImgProps {
@@ -20,6 +17,7 @@ interface ImgProps {
 
 export const SplashIcon: React.FC<ImgProps> = (props) => {
   const { scrollYProgress } = useScroll();
+  const [scroll, setScroll] = React.useState(false);
 
   const splashIconAnimation = {
     icon: {
@@ -39,16 +37,15 @@ export const SplashIcon: React.FC<ImgProps> = (props) => {
     },
   };
 
-  const printScroll = () => {
-    console.log(`${scrollYProgress?.current}`);
-  };
-
-  window.addEventListener("scroll", printScroll);
+  window.addEventListener("scroll", () =>
+    setScroll(scrollYProgress?.current > 0.09)
+  );
 
   return (
     <>
       <ImgContainer
-        animate={scrollYProgress?.current > 0.5 ? "icon" : "splash"}
+        layout
+        animate={scroll ? "icon" : "splash"}
         variants={splashIconAnimation}
       >
         <img {...props}></img>
