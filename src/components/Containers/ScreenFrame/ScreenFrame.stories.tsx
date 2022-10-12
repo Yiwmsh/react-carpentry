@@ -4,7 +4,7 @@ import { DarkPalette, LightPalette } from "../../../consts/colors";
 import { Theme } from "../../../types/Theme";
 import { ThemeContext } from "../../ThemeContext";
 import { ScreenFrame } from "./ScreenFrame";
-import { Page } from "../Page/Page";
+import { PageBody } from "../PageBody/PageBody";
 import { Card } from "../Card/Card";
 import { Button } from "../../Inputs/Button/Button";
 import { ButtonBank } from "../ButtonBank/ButtonBank";
@@ -31,7 +31,7 @@ export const Primary: Story = () => (
 export const PageWithScreenFrame: Story = () => (
   <ThemeContext theme={darkTheme}>
     <ScreenFrame>
-      <Page>Test</Page>
+      <PageBody>Test</PageBody>
     </ScreenFrame>
   </ThemeContext>
 );
@@ -54,7 +54,7 @@ export const PopulatedPage: Story = () => (
       <Navbar>
         <ScrollToButton target={0}>Return to Top</ScrollToButton>
       </Navbar>
-      <Page>
+      <PageBody>
         <Title>Title</Title>
         <Card>
           <h1>Heading</h1>
@@ -76,7 +76,7 @@ export const PopulatedPage: Story = () => (
             <Button>Test Button</Button>
           </ButtonBank>
         </Card>
-      </Page>
+      </PageBody>
     </ScreenFrame>
   </ThemeContext>
 );

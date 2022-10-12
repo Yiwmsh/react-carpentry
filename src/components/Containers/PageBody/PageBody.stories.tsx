@@ -3,17 +3,17 @@ import { Story } from "@storybook/react";
 import { DarkPalette, LightPalette } from "../../../consts/colors";
 import { Theme } from "../../../types/Theme";
 import { ThemeContext } from "../../ThemeContext";
-import { Page } from "./Page";
+import { PageBody } from "./PageBody";
 
 export default {
-  title: "Page",
-  component: Page,
+  title: "PageBody",
+  component: PageBody,
 };
 
 const theme = new Theme(DarkPalette);
 
 export const Primary: Story = () => (
   <ThemeContext theme={theme}>
-    <Page>Test</Page>
+    <PageBody>Test</PageBody>
   </ThemeContext>
 );
