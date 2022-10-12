@@ -10,8 +10,9 @@ import { Button } from "../../Inputs/Button/Button";
 import { ButtonBank } from "../ButtonBank/ButtonBank";
 import { Title } from "../../Displays/Title/Title";
 import { Navbar } from "../Navbar/Navbar";
-import { ScrollToButton } from "../../Inputs/Button/ScrollToButton/ScrollToButton";
+import { ScrollToTopButton } from "../../Inputs/Button/ScrollToButton/ScrollToTopButton/ScrollToTopButton";
 import { PageSplashSimulator } from "../../../consts/testComponents";
+import { TextContent } from "../../Displays/TextContent/TextContent";
 import styled from "@emotion/styled";
 
 const darkTheme = new Theme(DarkPalette);
@@ -48,11 +49,12 @@ const CenteredCard = styled(Card)`
 
 export const PopulatedPage: Story = () => (
   <ThemeContext theme={darkTheme}>
+    <ScrollToTopButton />
     <ScreenFrame>
       <CenteredCard>Test Card</CenteredCard>
       <PageSplashSimulator backgroundColor="#a4d4ff"></PageSplashSimulator>
       <Navbar>
-        <ScrollToButton scrollTarget={0}>Return to Top</ScrollToButton>
+        <TextContent altColor>This is a toolbar!</TextContent>
       </Navbar>
       <PageBody>
         <Title>Title</Title>
