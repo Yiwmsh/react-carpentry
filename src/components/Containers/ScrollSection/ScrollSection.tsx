@@ -4,15 +4,23 @@ import { SectionElement } from "@react-types/shared";
 import React from "react";
 import { SectionProps } from "react-stately";
 import { VIEW_PORT_WIDTH } from "../../../consts/measurements";
+import { Color } from "../../../types/Color";
 
-const StyledScrollSection = styled.section`
+interface ScrollSectionProps
+  extends React.DetailedHTMLProps<
+    React.HTMLAttributes<HTMLElement>,
+    HTMLElement
+  > {
+  backgroundColor: Color;
+}
+
+const StyledScrollSection = styled.section<{ backgroundColor: Color }>`
   height: 100vh;
   width: var(${VIEW_PORT_WIDTH});
-  background-color: pink;
+  background-color: ${({ backgroundColor }) => backgroundColor};
+  scroll-snap-align: center;
 `;
 
-export const ScrollSection: React.FC<
-  React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>
-> = ({ ...props }) => {
+export const ScrollSection: React.FC<ScrollSectionProps> = ({ ...props }) => {
   return <StyledScrollSection {...props} />;
 };
