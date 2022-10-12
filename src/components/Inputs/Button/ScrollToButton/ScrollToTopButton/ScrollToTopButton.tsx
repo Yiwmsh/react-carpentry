@@ -43,7 +43,7 @@ export const ScrollToTopButton: React.FC = () => {
   return (
     <AnimatePresence>
       {visible && (
-        <StyledScrollToTopButton scrollTarget={0}>
+        <StyledScrollToTopButton unstyled scrollTarget={0}>
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
