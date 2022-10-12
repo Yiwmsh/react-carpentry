@@ -1,7 +1,7 @@
 import { Button, ButtonProps } from "../Button";
 import React from "react";
 
-interface ScrollToButtonProps extends ButtonProps {
+export interface ScrollToButtonProps extends ButtonProps {
   scrollTarget: number | React.MutableRefObject<any>;
   behavior?: "smooth" | "auto";
 }
