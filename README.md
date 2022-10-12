@@ -132,6 +132,27 @@ This button takes a `target` prop, which can be either a Number or a Ref to anot
 </ThemeContext>
 ```
 
+#### ScrollToTopButton
+
+This is a pre-baked `ScrollToButton` that handles its own styling and functionality. As a result its implimentation is as simple as adding `<ScrollToTopButton/>` anywhere in your hierarchy.
+
+Example:
+
+```jsx
+<ThemeContext theme={darkTheme}>
+  <ScrollToTopButton />
+  <ScreenFrame>
+    <PageBody>
+      <TextContent>This is the top of the page!</TextContent>
+      <PageSplashSimulator />
+      <PageSplashSimulator />
+      <PageSplashSimulator />
+      <PageSplashSimulator />
+    </PageBody>
+  </ScreenFrame>
+</ThemeContext>
+```
+
 ### Checkbox
 
 A custom Checkbox component animated with `Framer Motion` and leveraging `react-aria` for accessibility. It will use your Theme's colors.
