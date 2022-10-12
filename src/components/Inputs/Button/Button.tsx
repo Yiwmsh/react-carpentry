@@ -48,12 +48,6 @@ export const Button: React.FC<ButtonProps> = ({
   const defaultColor = secondaryColor
     ? SemanticColors.secondary
     : SemanticColors.primary;
-  const activeColor = secondaryColor
-    ? SemanticColors.secondaryActive
-    : SemanticColors.primaryActive;
-  const disabledColor = secondaryColor
-    ? SemanticColors.secondaryDisabled
-    : SemanticColors.primaryDisabled;
 
   const animations = unstyled
     ? {}
@@ -64,15 +58,15 @@ export const Button: React.FC<ButtonProps> = ({
         },
         whileHover: {
           scale: 1.05,
-          backgroundColor: `var(${activeColor})`,
+          filter: "saturate(150%)",
         },
         whileFocus: {
           scale: 1.05,
-          backgroundColor: `var(${activeColor})`,
+          filter: "saturate(150%)",
         },
         whileTap: {
           scale: 0.95,
-          backgroundColor: `var(${disabledColor})`,
+          filter: "brightness(0.5)",
         },
       };
 
