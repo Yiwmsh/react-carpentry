@@ -7,6 +7,9 @@ export const LightPalette: ColorPalette = {
     primary: "#b05251",
     primaryActive: "#c44a3d",
     primaryDisabled: "#683939",
+    secondary: "#0047AB",
+    secondaryActive: "#0047d9",
+    secondaryDisabled: "#002e6f",
     text: "#000000",
     altText: "#FFFFFF"
 }
@@ -19,6 +22,9 @@ export const DarkPalette: ColorPalette = {
     primary: "#b05251",
     primaryActive: "#c44a3d",
     primaryDisabled: "#683939",
+    secondary: "#0047AB",
+    secondaryActive: "#0047d9",
+    secondaryDisabled: "#002e6f",
     text: "#FFFFFF",
     altText: "#FFFFFF"
 }

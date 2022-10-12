@@ -12,7 +12,6 @@ const StyledButton = styled(motion.button)<{
 }>`
   display: ${({ display }) => (display ? "inline-block" : "none")};
   visibility: ${({ visible }) => (visible ? "visible" : "hidden")};
-  background-color: var(${SemanticColors.primary});
   font-weight: 600;
   color: var(${SemanticColors.altText});
   cursor: pointer;
@@ -31,34 +30,46 @@ const StyledButton = styled(motion.button)<{
 export interface ButtonProps extends AriaButtonProps {
   visible?: boolean;
   display?: boolean;
+  secondaryColor?: boolean;
 }
 
 export const Button: React.FC<ButtonProps> = ({
   visible,
   display,
+  secondaryColor,
   ...rest
 }) => {
   const ref = React.useRef(null);
   const { buttonProps, isPressed } = useButton(rest, ref);
   const { children } = rest;
 
+  const defaultColor = secondaryColor
+    ? SemanticColors.secondary
+    : SemanticColors.primary;
+  const activeColor = secondaryColor
+    ? SemanticColors.secondaryActive
+    : SemanticColors.primaryActive;
+  const disabledColor = secondaryColor
+    ? SemanticColors.secondaryDisabled
+    : SemanticColors.primaryDisabled;
+
   return (
     <StyledButton
       initial={{
         scale: 1,
-        backgroundColor: `var(${SemanticColors.primary})`,
+        backgroundColor: `var(${defaultColor})`,
       }}
       whileHover={{
         scale: 1.05,
-        backgroundColor: `var(${SemanticColors.primaryActive})`,
+        backgroundColor: `var(${activeColor})`,
       }}
       whileFocus={{
         scale: 1.05,
-        backgroundColor: `var(${SemanticColors.primaryActive})`,
+        backgroundColor: `var(${activeColor})`,
       }}
       whileTap={{
         scale: 0.95,
-        backgroundColor: `var(${SemanticColors.primaryDisabled})`,
+        backgroundColor: `var(${disabledColor})`,
       }}
       display={display ?? true}
       visible={visible ?? true}
