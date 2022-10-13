@@ -3,8 +3,17 @@
   "version": "0.0.1",
   "description": "React component library for my personal projects",
   "main": "index.ts",
-  "repository": "https://github.com/Yiwmsh/react-carpentry",
-  "author": "Whismy",
+  "repository": { 
+  "type": "git",  
+  "url": "https://github.com/Yiwmsh/react-carpentry"
+},
+  "author": {
+    "name": "Whismy",
+    "email": "lonelevelsands@gmail.com"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/yiwmsh"
+  },
   "license": "MIT",
   "private": false,
   "dependencies": {
