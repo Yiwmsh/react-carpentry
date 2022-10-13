@@ -31,6 +31,10 @@ interface ModalProps {
   show: boolean;
 }
 
+/* 
+  TODO Rework this Modal to use react-aria's Overlay
+*/
+
 export const Modal: React.FC<ModalProps> = ({ children, show, dimmed }) => {
   return (
     <AnimatePresence>
