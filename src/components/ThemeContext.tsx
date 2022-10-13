@@ -1,7 +1,10 @@
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import * as React from "react";
-import { SCROLL_BAR_WIDTH, VIEW_PORT_WIDTH } from "../consts/measurements";
+import {
+  SCROLL_BAR_WIDTH,
+  VIEW_PORT_WIDTH,
+} from "../consts/internal/measurements";
 import { SemanticColors } from "../types/Color";
 import { Theme } from "../types/Theme";
 

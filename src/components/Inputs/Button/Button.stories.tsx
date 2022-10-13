@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from "./Button";
 import { Story } from "@storybook/react";
 import { ThemeContext } from "../../ThemeContext";
-import { lightTheme } from "../../../consts/theme";
+import { lightTheme } from "../../../consts/internal/theme";
 import { ButtonBank } from "../../Containers/ButtonBank/ButtonBank";
 
 export default {

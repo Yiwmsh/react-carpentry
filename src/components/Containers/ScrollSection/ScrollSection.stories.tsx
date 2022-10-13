@@ -1,7 +1,7 @@
 import { ThemeContext } from "../../ThemeContext";
 import { Story } from "@storybook/react";
 import React from "react";
-import { DarkPalette, LightPalette } from "../../../consts/colors";
+import { DarkPalette, LightPalette } from "../../../consts/internal/colors";
 import { Theme } from "../../../types/Theme";
 import { ScreenFrame } from "../ScreenFrame/ScreenFrame";
 import { ScrollSection } from "./ScrollSection";

@@ -1,6 +1,6 @@
 import { Story } from "@storybook/react";
 import React from "react";
-import { LightPalette } from "../../../consts/colors";
+import { LightPalette } from "../../../consts/internal/colors";
 import { Theme } from "../../../types/Theme";
 import { TextContent } from "../../Displays/TextContent/TextContent";
 import { Button } from "../../Inputs/Button/Button";

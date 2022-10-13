@@ -1,6 +1,6 @@
 import React from "react";
 import { Story } from "@storybook/react";
-import { DarkPalette, LightPalette } from "../../../consts/colors";
+import { DarkPalette, LightPalette } from "../../../consts/internal/colors";
 import { Theme } from "../../../types/Theme";
 import { ThemeContext } from "../../ThemeContext";
 import { ScreenFrame } from "./ScreenFrame";
@@ -11,7 +11,7 @@ import { ButtonBank } from "../ButtonBank/ButtonBank";
 import { Title } from "../../Displays/Title/Title";
 import { Navbar } from "../Navbar/Navbar";
 import { ScrollToTopButton } from "../../Inputs/Button/ScrollToButton/ScrollToTopButton/ScrollToTopButton";
-import { PageSplashSimulator } from "../../../consts/testComponents";
+import { PageSplashSimulator } from "../../../consts/internal/testComponents";
 import { TextContent } from "../../Displays/TextContent/TextContent";
 import styled from "@emotion/styled";
 

@@ -1,6 +1,6 @@
 import React from "react";
 import { Story } from "@storybook/react";
-import { DarkPalette, LightPalette } from "../../../consts/colors";
+import { DarkPalette, LightPalette } from "../../../consts/internal/colors";
 import { Theme } from "../../../types/Theme";
 import { ThemeContext } from "../../ThemeContext";
 import { PageBody } from "./PageBody";

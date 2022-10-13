@@ -1,6 +1,6 @@
 import React from "react";
 import { Story } from "@storybook/react";
-import { DarkPalette, LightPalette } from "../../../consts/colors";
+import { DarkPalette, LightPalette } from "../../../consts/internal/colors";
 import { Theme } from "../../../types/Theme";
 import { ThemeContext } from "../../ThemeContext";
 import { Page } from "../Page/Page";
@@ -10,7 +10,7 @@ import { ButtonBank } from "../ButtonBank/ButtonBank";
 import { Title } from "../../Displays/Title/Title";
 import { Navbar } from "./Navbar";
 import styled from "@emotion/styled";
-import { PageSplashSimulator } from "../../../consts/testComponents";
+import { PageSplashSimulator } from "../../../consts/internal/testComponents";
 import { TextContent } from "../../Displays/TextContent/TextContent";
 
 const darkTheme = new Theme(DarkPalette);

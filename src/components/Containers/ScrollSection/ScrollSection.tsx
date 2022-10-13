@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 import { SectionElement } from "@react-types/shared";
 import React from "react";
 import { SectionProps } from "react-stately";
-import { VIEW_PORT_WIDTH } from "../../../consts/measurements";
+import { VIEW_PORT_WIDTH } from "../../../consts/internal/measurements";
 import { Color } from "../../../types/Color";
 
 interface ScrollSectionProps

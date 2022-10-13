@@ -1,6 +1,6 @@
 import { Story } from "@storybook/react";
 import React from "react";
-import { lightTheme } from "../../../consts/theme";
+import { lightTheme } from "../../../consts/internal/theme";
 import { ThemeContext } from "../../ThemeContext";
 import { Checkbox } from "./Checkbox";
 

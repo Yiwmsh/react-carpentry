@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import React from "react";
-import { CARD_CONTENT_VERTICAL_MARGIN } from "../../../consts/measurements";
+import { CARD_CONTENT_VERTICAL_MARGIN } from "../../../consts/internal/measurements";
 import {
   TextContent,
   TextContentProps,

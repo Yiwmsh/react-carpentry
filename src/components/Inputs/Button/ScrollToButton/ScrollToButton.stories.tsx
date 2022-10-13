@@ -1,8 +1,8 @@
 import React from "react";
 import { Story } from "@storybook/react";
-import { darkTheme, lightTheme } from "../../../../consts/theme";
+import { darkTheme, lightTheme } from "../../../../consts/internal/theme";
 import { ScrollToButton } from "./ScrollToButton";
-import { PageSplashSimulator } from "../../../../consts/testComponents";
+import { PageSplashSimulator } from "../../../../consts/internal/testComponents";
 import { ThemeContext } from "../../../ThemeContext";
 import { ScrollToTopButton } from "./ScrollToTopButton/ScrollToTopButton";
 import { ScreenFrame } from "../../../Containers/ScreenFrame/ScreenFrame";
