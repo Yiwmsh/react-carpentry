@@ -1,4 +1,4 @@
-import { ColorPalette as ColorPalette } from "../types/Color";
+import { ColorPalette as ColorPalette } from "../../types/Color";
 
 
 export const LightPalette: ColorPalette = {

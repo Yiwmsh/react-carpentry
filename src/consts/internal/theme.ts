@@ -1,5 +1,5 @@
-import { Theme } from "../types/Theme";
-import { DarkPalette, LightPalette } from "./colors";
+import { Theme } from "../../types/Theme";
+import { LightPalette, DarkPalette } from "./colors";
 
 export const lightTheme: Theme = {
     palette: LightPalette,

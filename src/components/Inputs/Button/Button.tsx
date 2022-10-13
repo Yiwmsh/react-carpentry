@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 import { SemanticColors } from "../../../types/Color";
 import { useButton } from "react-aria";
 import { AriaButtonProps } from "@react-types/button";
-import { BORDER_ROUNDING } from "../../../consts/measurements";
+import { BORDER_ROUNDING } from "../../../consts/internal/measurements";
 import { motion } from "framer-motion/dist/framer-motion";
 
 const StyledButton = styled(motion.button)<{
