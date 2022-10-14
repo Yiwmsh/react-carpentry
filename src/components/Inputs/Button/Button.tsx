@@ -42,8 +42,7 @@ export const Button: React.FC<ButtonProps> = ({
   ...rest
 }) => {
   const ref = React.useRef(null);
-  const { buttonProps, isPressed } = useButton(rest, ref);
-  const { children } = rest;
+  const { buttonProps } = useButton(rest, ref);
 
   const defaultColor = secondaryColor
     ? SemanticColors.secondary
