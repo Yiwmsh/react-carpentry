@@ -13,9 +13,12 @@ import {
 import { useOverlayTriggerState } from "react-stately";
 import React from "react";
 import { Button } from "../../Inputs";
+import { Theme } from "../../../types";
+import { ThemeContext } from "../../ThemeContext";
 
 interface ModalProps extends AriaOverlayProps {
   children?: React.ReactNode;
+  theme: Theme;
 }
 
 const Underlay = styled.div`
@@ -37,7 +40,7 @@ const Underlay = styled.div`
   TODO Rework this Modal to use react-aria's Overlay
 */
 
-export const Modal: React.FC<ModalProps> = ({ children, ...rest }) => {
+export const Modal: React.FC<ModalProps> = ({ children, theme, ...rest }) => {
   const state = useOverlayTriggerState({});
   const { modalProps } = useModal();
   const ref = React.useRef(null);
@@ -48,13 +51,15 @@ export const Modal: React.FC<ModalProps> = ({ children, ...rest }) => {
       <Button onPress={state.open}>Open Dialog</Button>
       {state.isOpen && (
         <OverlayContainer>
-          <Underlay {...underlayProps}>
-            <FocusScope contain restoreFocus autoFocus>
-              <div {...overlayProps} ref={ref}>
-                {children}
-              </div>
-            </FocusScope>
-          </Underlay>
+          <ThemeContext theme={theme}>
+            <Underlay {...underlayProps}>
+              <FocusScope contain restoreFocus autoFocus>
+                <div {...overlayProps} ref={ref}>
+                  {children}
+                </div>
+              </FocusScope>
+            </Underlay>
+          </ThemeContext>
         </OverlayContainer>
       )}
     </>
