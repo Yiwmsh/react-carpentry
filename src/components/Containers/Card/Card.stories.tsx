@@ -2,7 +2,7 @@ import React from "react";
 import { Story } from "@storybook/react";
 import { Card } from "./Card";
 import styled from "@emotion/styled";
-import { DarkPalette, LightPalette } from "../../../consts/internal/colors";
+import { LightPalette } from "../../../consts/internal/colors";
 import { Theme } from "../../../types/Theme";
 import { ThemeContext } from "../../ThemeContext";
 import { Button } from "../../Inputs/Button/Button";
@@ -13,7 +13,7 @@ import { SemanticColors } from "../../../types/Color";
 import { CardImage } from "./CardImage";
 
 export default {
-  title: "Card",
+  title: "Components/Containers/Card",
   component: Card,
 };
 

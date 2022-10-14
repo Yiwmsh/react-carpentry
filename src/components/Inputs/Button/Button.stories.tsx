@@ -6,7 +6,7 @@ import { lightTheme } from "../../../consts/internal/theme";
 import { ButtonBank } from "../../Containers/ButtonBank/ButtonBank";
 
 export default {
-  title: "Button",
+  title: "Components/Inputs/Button",
   component: Button,
 };
 

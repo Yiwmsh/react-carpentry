@@ -3,7 +3,6 @@ import { Story } from "@storybook/react";
 import React from "react";
 import { DarkPalette, LightPalette } from "../../../consts/internal/colors";
 import { Theme } from "../../../types/Theme";
-import { ScreenFrame } from "../ScreenFrame/ScreenFrame";
 import { ScrollSection } from "./ScrollSection";
 import { ScrollSnapper } from "./ScrollSnapper";
 import { ScrollToTopButton } from "../../Inputs/Button/ScrollToButton/ScrollToTopButton/ScrollToTopButton";
@@ -12,7 +11,7 @@ const darkTheme = new Theme(DarkPalette);
 const lightTheme = new Theme(LightPalette);
 
 export default {
-  title: "ScrollSection",
+  title: "Components/Containers/ScrollSection",
   component: ScrollSection,
 };
 

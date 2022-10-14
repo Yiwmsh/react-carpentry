@@ -16,10 +16,9 @@ import { TextContent } from "../../Displays/TextContent/TextContent";
 import styled from "@emotion/styled";
 
 const darkTheme = new Theme(DarkPalette);
-const lightTheme = new Theme(LightPalette);
 
 export default {
-  title: "ScreenFrame",
+  title: "Components/Containers/ScreenFrame",
   component: ScreenFrame,
 };
 

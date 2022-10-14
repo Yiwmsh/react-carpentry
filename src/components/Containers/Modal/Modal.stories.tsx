@@ -13,7 +13,7 @@ import { Modal } from "./Modal";
 import { CardFooter } from "../Card/CardFooter";
 
 export default {
-  title: "Modal",
+  title: "Components/Containers/Modal",
   component: Modal,
 };
 

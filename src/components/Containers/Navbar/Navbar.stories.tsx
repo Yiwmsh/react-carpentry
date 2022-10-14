@@ -3,13 +3,7 @@ import { Story } from "@storybook/react";
 import { DarkPalette, LightPalette } from "../../../consts/internal/colors";
 import { Theme } from "../../../types/Theme";
 import { ThemeContext } from "../../ThemeContext";
-import { Page } from "../Page/Page";
-import { Card } from "../Card/Card";
-import { Button } from "../../Inputs/Button/Button";
-import { ButtonBank } from "../ButtonBank/ButtonBank";
-import { Title } from "../../Displays/Title/Title";
 import { Navbar } from "./Navbar";
-import styled from "@emotion/styled";
 import { PageSplashSimulator } from "../../../consts/internal/testComponents";
 import { TextContent } from "../../Displays/TextContent/TextContent";
 
@@ -17,7 +11,7 @@ const darkTheme = new Theme(DarkPalette);
 const lightTheme = new Theme(LightPalette);
 
 export default {
-  title: "Navbar",
+  title: "Components/Containers/Navbar",
   component: Navbar,
 };
 

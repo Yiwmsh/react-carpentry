@@ -5,7 +5,7 @@ import { ThemeContext } from "../../ThemeContext";
 import { Checkbox } from "./Checkbox";
 
 export default {
-  title: "Checkbox",
+  title: "Components/Inputs/Checkbox",
   component: Checkbox,
 };
 

@@ -6,7 +6,7 @@ import { ThemeContext } from "../../ThemeContext";
 import { PageBody } from "./PageBody";
 
 export default {
-  title: "PageBody",
+  title: "Components/Containers/PageBody",
   component: PageBody,
 };
 

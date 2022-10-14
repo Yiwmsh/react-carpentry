@@ -11,7 +11,7 @@ import { ThemeContext } from "../../ThemeContext";
 import { TextContent } from "./TextContent";
 
 export default {
-  title: "TextContent",
+  title: "Components/Displays/TextContent",
   component: TextContent,
 };
 

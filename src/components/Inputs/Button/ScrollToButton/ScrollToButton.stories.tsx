@@ -11,7 +11,7 @@ import { TextContent } from "../../../Displays/TextContent/TextContent";
 import styled from "@emotion/styled";
 
 export default {
-  title: "ScrollToButton",
+  title: "Components/Inputs/ScrollToButton",
   component: ScrollToButton,
 };
 
