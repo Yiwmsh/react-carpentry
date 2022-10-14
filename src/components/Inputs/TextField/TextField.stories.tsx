@@ -1,12 +1,12 @@
 import { Story } from "@storybook/react";
 import React from "react";
-import { darkTheme } from "../../../consts/theme";
 import { ThemeContext } from "../../ThemeContext";
 import { TextField } from "./TextField";
 import { Card } from "../../Containers/Card/Card";
 import { CardBody } from "../../Containers/Card/CardBody";
 import { TextContent } from "../../Displays/TextContent/TextContent";
 import styled from "@emotion/styled";
+import { darkTheme } from "../../../consts/internal/theme";
 
 export default {
   title: "TextField",
