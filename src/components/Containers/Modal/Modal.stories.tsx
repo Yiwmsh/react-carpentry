@@ -19,7 +19,7 @@ export const Primary: Story = () => {
   return (
     <ThemeContext theme={theme}>
       <Modal theme={theme}>
-        <Card centered="both" width="20%" height="20%">
+        <Card width="40%" height="20%">
           <CardBody centerContents>
             <TextContent>This is a card inside a modal! Wow!</TextContent>
           </CardBody>
