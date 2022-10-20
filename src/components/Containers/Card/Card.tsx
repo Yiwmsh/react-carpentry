@@ -1,7 +1,5 @@
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
-import { string } from "prop-types";
-import { version } from "react";
 import { BORDER_ROUNDING } from "../../../consts/internal/measurements";
 import { SemanticColors } from "../../../types/Color";
 

@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import React from "react";
 import { SemanticColors } from "../../../types/Color";
 
 export const PageBody = styled.div`
