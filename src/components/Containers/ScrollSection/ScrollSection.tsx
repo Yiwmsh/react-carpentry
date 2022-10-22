@@ -1,8 +1,6 @@
-import { css, PropsOf } from "@emotion/react";
+import { css } from "@emotion/react";
 import styled from "@emotion/styled";
-import { SectionElement } from "@react-types/shared";
 import React from "react";
-import { SectionProps } from "react-stately";
 import { VIEW_PORT_WIDTH } from "../../../consts/internal/measurements";
 import { Color } from "../../../types/Color";
 
