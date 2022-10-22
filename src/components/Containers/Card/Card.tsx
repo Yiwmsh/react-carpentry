@@ -59,4 +59,7 @@ export const Card = styled.article<CardProps>`
   box-shadow: 0.125em 0.25em 1.25em var(${SemanticColors.shadow});
   background-color: var(${SemanticColors.foreground});
   margin: 0.5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `;
