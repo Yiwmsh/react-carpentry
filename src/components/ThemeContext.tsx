@@ -1,6 +1,7 @@
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import * as React from "react";
+import { OverlayProvider } from "react-aria";
 import {
   SCROLL_BAR_WIDTH,
   VIEW_PORT_WIDTH,
@@ -39,5 +40,9 @@ export const ThemeContext: React.FC<{
   document.body.style.setProperty(SCROLL_BAR_WIDTH, `${scrollbarWidth}`);
   document.body.style.setProperty("padding", "0px");
 
-  return <ThemeContextCSS theme={theme}>{children}</ThemeContextCSS>;
+  return (
+    <ThemeContextCSS theme={theme}>
+      <OverlayProvider>{children}</OverlayProvider>
+    </ThemeContextCSS>
+  );
 };

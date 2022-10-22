@@ -76,23 +76,30 @@ And this is a slightly more styled Card:
 A Modal is a container with `position: fixed` that fills the entire screen and starts with `display: none`. By default it will have a translucent black background, to dim the rest of the screen. Modals are intended to be used as popups, and can be opened or closed. By default a Modal will contain nothing else, but accepts children.
 
 ```jsx
-<ThemeContext theme={theme}>
-  <Button onPress={() => setShowModal(!showModal)}>Show Modal</Button>
-  <Modal dimmed={dimmed} show={showModal}>
-    <Card centered="both" width="20%" height="20%">
-      <CardBody centerContents>
-        <TextContent>This is a card inside a modal! Wow!</TextContent>
-      </CardBody>
-      <CardFooter>
-        <ButtonBank>
-          <Button onPress={() => setShowModal(!showModal)}>Hide Modal</Button>
-          <Button onPress={() => setDimmed(!dimmed)}>Dimmed?</Button>
-        </ButtonBank>
-      </CardFooter>
-    </Card>
-  </Modal>
-</ThemeContext>
+export const Primary: Story = () => {
+  const modalState = useOverlayTriggerState({});
+
+  return (
+    <ThemeContext theme={theme}>
+      <Button onPress={modalState.open}>Open Dialog</Button>
+      <Modal theme={theme} state={modalState}>
+        <Card width="40%" height="20%">
+          <CardBody centerContents>
+            <TextContent>This is a card inside a modal! Wow!</TextContent>
+          </CardBody>
+          <CardFooter>
+            <ButtonBank>
+              <Button onPress={modalState.close}>Close Dialog</Button>
+            </ButtonBank>
+          </CardFooter>
+        </Card>
+      </Modal>
+    </ThemeContext>
+  );
+};
 ```
+
+`const modalState = useOverlayTriggerState({});` must be declared at the parent level to allow flexibility in how the modal is controlled.
 
 ### Navbar
 
