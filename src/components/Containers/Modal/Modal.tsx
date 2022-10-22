@@ -8,7 +8,7 @@ import {
   usePreventScroll,
   AriaOverlayProps,
 } from "react-aria";
-import { useOverlayTriggerState } from "react-stately";
+import { OverlayTriggerState, useOverlayTriggerState } from "react-stately";
 import React from "react";
 import { Button } from "../../Inputs";
 import { Theme } from "../../../types";
@@ -17,6 +17,7 @@ import { ThemeContext } from "../../ThemeContext";
 interface ModalProps extends AriaOverlayProps {
   children?: React.ReactNode;
   theme: Theme;
+  state: OverlayTriggerState;
 }
 
 const Underlay = styled(motion.div)`
@@ -52,8 +53,12 @@ const ModalContainer = styled(motion.div)`
   TODO Finish reworking this Modal to use react-aria's Overlay
 */
 
-export const Modal: React.FC<ModalProps> = ({ children, theme, ...rest }) => {
-  const state = useOverlayTriggerState({});
+export const Modal: React.FC<ModalProps> = ({
+  children,
+  theme,
+  state,
+  ...rest
+}) => {
   const { modalProps } = useModal();
   const ref = React.useRef(null);
   const { overlayProps, underlayProps } = useOverlay(rest, ref);
@@ -62,7 +67,6 @@ export const Modal: React.FC<ModalProps> = ({ children, theme, ...rest }) => {
 
   return (
     <>
-      <Button onPress={state.open}>Open Dialog</Button>
       <AnimatePresence>
         {state.isOpen && (
           <OverlayContainer>
