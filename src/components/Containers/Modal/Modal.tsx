@@ -49,10 +49,6 @@ const ModalContainer = styled(motion.div)`
   justify-content: center;
 `;
 
-/* 
-  TODO Finish reworking this Modal to use react-aria's Overlay
-*/
-
 export const Modal: React.FC<ModalProps> = ({
   children,
   theme,
