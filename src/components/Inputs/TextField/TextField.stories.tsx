@@ -50,8 +50,9 @@ export const CustomRenders: Story = () => {
         <CardBody>
           <StyledTextField
             label="This font should be yellow!"
-            renderLabel={(props) => (
-              <CustomLabel {...props}>This font should be yellow!</CustomLabel>
+            onChange={setText}
+            renderLabel={(props, label) => (
+              <CustomLabel {...props}>{label}</CustomLabel>
             )}
           />
           <br />

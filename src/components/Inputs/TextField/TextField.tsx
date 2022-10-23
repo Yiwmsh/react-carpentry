@@ -9,7 +9,10 @@ import { TextContent } from "../../Displays/TextContent/TextContent";
 
 // TODO I am not pleased with my use of <any> here.
 interface TextFieldProps extends AriaTextFieldOptions<"input"> {
-  renderLabel?: (props: DOMAttributes<any>) => React.ReactNode;
+  renderLabel?: (
+    props: DOMAttributes<any>,
+    label: React.ReactNode
+  ) => React.ReactNode;
   renderInput?: (
     props: React.InputHTMLAttributes<HTMLInputElement>,
     ref: React.MutableRefObject<null>
@@ -58,7 +61,7 @@ export const TextField: React.FC<TextFieldProps> = ({
     useTextField(rest, ref);
 
   if (renderLabel === undefined) {
-    renderLabel = (props: DOMAttributes<any>) => {
+    renderLabel = (props) => {
       return (
         <TextFieldLabel {...props}>
           <TextContent>{label}</TextContent>
@@ -68,16 +71,13 @@ export const TextField: React.FC<TextFieldProps> = ({
   }
 
   if (renderInput === undefined) {
-    renderInput = (
-      props: React.InputHTMLAttributes<HTMLInputElement>,
-      ref: React.MutableRefObject<null>
-    ) => {
+    renderInput = (props, ref) => {
       return <TextFieldInput {...props} ref={ref} />;
     };
   }
 
   if (renderDescription === undefined) {
-    renderDescription = (props: DOMAttributes<any>, description: any) => {
+    renderDescription = (props, description) => {
       return (
         <TextFieldDescription {...props}>
           <TextContent>{description}</TextContent>
@@ -87,10 +87,7 @@ export const TextField: React.FC<TextFieldProps> = ({
   }
 
   if (renderError === undefined) {
-    renderError = (
-      props: DOMAttributes<any>,
-      errorMessage: React.ReactNode
-    ) => {
+    renderError = (props, errorMessage) => {
       return (
         <TextFieldErrorMessage {...props}>
           <TextContent>{errorMessage}</TextContent>
@@ -101,7 +98,7 @@ export const TextField: React.FC<TextFieldProps> = ({
 
   return (
     <TextFieldContainer>
-      {renderLabel(labelProps)}
+      {renderLabel(labelProps, label)}
       {renderInput(inputProps, ref)}
       {rest.description &&
         renderDescription(descriptionProps, rest.description)}
