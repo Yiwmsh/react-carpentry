@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import React, { CSSProperties } from "react";
+import React, { CSSProperties, DOMAttributes } from "react";
 import {
   AriaTextFieldOptions,
   AriaTextFieldProps,
@@ -7,27 +7,26 @@ import {
 } from "react-aria";
 import { TextContent } from "../../Displays/TextContent/TextContent";
 
+// TODO I am not pleased with my use of <any> here.
 interface TextFieldProps extends AriaTextFieldOptions<"input"> {
-  labelRender?: React.ReactNode;
-  inputRender?: React.ReactNode;
-  descriptionRender?: React.ReactNode;
-  errorRender?: React.ReactNode;
+  renderLabel?: (props: DOMAttributes<any>) => React.ReactNode;
+  renderInput?: (
+    props: React.InputHTMLAttributes<HTMLInputElement>,
+    ref: React.MutableRefObject<null>
+  ) => React.ReactNode;
+  renderDescription?: (
+    props: DOMAttributes<any>,
+    description: any
+  ) => React.ReactNode;
+  renderError?: (
+    props: DOMAttributes<any>,
+    errorMessage: React.ReactNode
+  ) => React.ReactNode;
 }
 
 /*
     TODO Style this component's constituents.
     Just figure out a good general stylistic approach, the goal is for this component to be easily restylable.
-    TODO Figure out how to allow pass-through of special renders.
-    Something like:
-        {labelRender ? (
-            <labelRender {...labelProps}>
-                {label}
-            </labelRender>
-        ) : (
-            <TextFieldLabel {...labelProps}>
-                <TextContent>{label}</TextContent>
-            </TextFieldLabel>
-    )}
     TODO Figure out why I can't restyle this component
             const RestyledTextField = styled(TextField)``;
         doesn't work.
@@ -47,32 +46,66 @@ const TextFieldDescription = styled.div``;
 const TextFieldErrorMessage = styled.div``;
 
 export const TextField: React.FC<TextFieldProps> = ({
-  labelRender,
-  inputRender,
-  descriptionRender,
-  errorRender,
+  renderLabel,
+  renderInput,
+  renderDescription,
+  renderError,
   ...rest
 }) => {
   const { label } = rest;
   const ref = React.useRef(null);
   const { labelProps, inputProps, descriptionProps, errorMessageProps } =
     useTextField(rest, ref);
+
+  if (renderLabel === undefined) {
+    renderLabel = (props: DOMAttributes<any>) => {
+      return (
+        <TextFieldLabel {...props}>
+          <TextContent>{label}</TextContent>
+        </TextFieldLabel>
+      );
+    };
+  }
+
+  if (renderInput === undefined) {
+    renderInput = (
+      props: React.InputHTMLAttributes<HTMLInputElement>,
+      ref: React.MutableRefObject<null>
+    ) => {
+      return <TextFieldInput {...props} ref={ref} />;
+    };
+  }
+
+  if (renderDescription === undefined) {
+    renderDescription = (props: DOMAttributes<any>, description: any) => {
+      return (
+        <TextFieldDescription {...props}>
+          <TextContent>{description}</TextContent>
+        </TextFieldDescription>
+      );
+    };
+  }
+
+  if (renderError === undefined) {
+    renderError = (
+      props: DOMAttributes<any>,
+      errorMessage: React.ReactNode
+    ) => {
+      return (
+        <TextFieldErrorMessage {...props}>
+          <TextContent>{errorMessage}</TextContent>
+        </TextFieldErrorMessage>
+      );
+    };
+  }
+
   return (
     <TextFieldContainer>
-      <TextFieldLabel {...labelProps}>
-        <TextContent>{label}</TextContent>
-      </TextFieldLabel>
-      <TextFieldInput {...inputProps} ref={ref} />
-      {rest.description && (
-        <TextFieldDescription {...descriptionProps}>
-          <TextContent>{rest.description}</TextContent>
-        </TextFieldDescription>
-      )}
-      {rest.errorMessage && (
-        <TextFieldErrorMessage {...errorMessageProps}>
-          <TextContent>{rest.errorMessage}</TextContent>
-        </TextFieldErrorMessage>
-      )}
+      {renderLabel(labelProps)}
+      {renderInput(inputProps, ref)}
+      {rest.description &&
+        renderDescription(descriptionProps, rest.description)}
+      {rest.errorMessage && renderError(errorMessageProps, rest.errorMessage)}
     </TextFieldContainer>
   );
 };
