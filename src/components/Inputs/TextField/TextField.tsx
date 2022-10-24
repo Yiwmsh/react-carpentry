@@ -46,6 +46,10 @@ const TextFieldInput = styled.input`
   background-color: transparent;
   outline: transparent;
   line-height: 2em;
+
+  &:invalid {
+    border-bottom: 1px solid var(${SemanticColors.error});
+  }
 `;
 
 const TextFieldDescription = styled.div`
