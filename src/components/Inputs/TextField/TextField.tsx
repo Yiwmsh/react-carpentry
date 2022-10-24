@@ -1,10 +1,7 @@
 import styled from "@emotion/styled";
 import React, { CSSProperties, DOMAttributes } from "react";
-import {
-  AriaTextFieldOptions,
-  AriaTextFieldProps,
-  useTextField,
-} from "react-aria";
+import { AriaTextFieldOptions, useTextField } from "react-aria";
+import { SemanticColors } from "../../../types/Color";
 import { TextContent } from "../../Displays/TextContent/TextContent";
 
 // TODO I am not pleased with my use of <any> here.
@@ -42,9 +39,20 @@ const TextFieldContainer = styled.div`
 
 const TextFieldLabel = styled.label``;
 
-const TextFieldInput = styled.input``;
+const TextFieldInput = styled.input`
+  color: var(${SemanticColors.text});
+  border: transparent;
+  border-bottom: 1px solid var(${SemanticColors.text});
+  background-color: transparent;
+  outline: transparent;
+  line-height: 2em;
+`;
 
-const TextFieldDescription = styled.div``;
+const TextFieldDescription = styled.div`
+  font-size: 0.8em;
+  font-style: italic;
+  filter: opacity(50%);
+`;
 
 const TextFieldErrorMessage = styled.div``;
 
@@ -55,7 +63,7 @@ export const TextField: React.FC<TextFieldProps> = ({
   renderError,
   ...rest
 }) => {
-  const { label } = rest;
+  const { label, errorMessage, description } = rest;
   const ref = React.useRef(null);
   const { labelProps, inputProps, descriptionProps, errorMessageProps } =
     useTextField(rest, ref);
@@ -100,9 +108,8 @@ export const TextField: React.FC<TextFieldProps> = ({
     <TextFieldContainer>
       {renderLabel(labelProps, label)}
       {renderInput(inputProps, ref)}
-      {rest.description &&
-        renderDescription(descriptionProps, rest.description)}
-      {rest.errorMessage && renderError(errorMessageProps, rest.errorMessage)}
+      {rest.description && renderDescription(descriptionProps, description)}
+      {rest.errorMessage && renderError(errorMessageProps, errorMessage)}
     </TextFieldContainer>
   );
 };

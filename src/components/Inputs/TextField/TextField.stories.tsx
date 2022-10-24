@@ -7,6 +7,7 @@ import { CardBody } from "../../Containers/Card/CardBody";
 import { TextContent } from "../../Displays/TextContent/TextContent";
 import styled from "@emotion/styled";
 import { darkTheme } from "../../../consts/internal/theme";
+import { Button } from "../Button/Button";
 
 export default {
   title: "Components/Inputs/TextField",
@@ -32,6 +33,34 @@ export const Primary: Story = () => {
             onChange={setText}
             placeholder="Tell me a joke"
           />
+          <br />
+          <TextContent>
+            <p>You entered: {text}</p>
+          </TextContent>
+        </CardBody>
+      </Card>
+    </ThemeContext>
+  );
+};
+
+export const PasswordInput: Story = () => {
+  const [text, setText] = React.useState("");
+  return (
+    <ThemeContext theme={darkTheme}>
+      <Card centered="both" width="500px" height="500px">
+        <CardBody>
+          <form>
+            <TextField
+              label="This Input Is Pattern Matched"
+              onChange={setText}
+              placeholder="Enter your password"
+              type="password"
+              isRequired
+              description="Password must be at least 8 characters, and include at least one uppercase and lowercase letter, one number, and one special character."
+              pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W])[A-Za-z\d\W]{8,}$"
+            />
+            <Button type="submit">Submit</Button>
+          </form>
           <br />
           <TextContent>
             <p>You entered: {text}</p>
