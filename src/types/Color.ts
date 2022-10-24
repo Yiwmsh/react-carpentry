@@ -17,6 +17,7 @@ export interface ColorPalette {
     secondary?: Color;
     secondaryActive?: Color;
     secondaryDisabled?: Color;
+    error?: Color;
 }
 
 export enum SemanticColors {
@@ -31,5 +32,6 @@ export enum SemanticColors {
     primaryDisabled = '--primary-disabled-color',
     secondary = '--secondary-color',
     secondaryActive = '--secondary-active',
-    secondaryDisabled = '--secondaryDisabled'
+    secondaryDisabled = '--secondaryDisabled',
+    error = "--error-color",
 }

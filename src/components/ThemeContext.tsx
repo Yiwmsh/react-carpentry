@@ -26,6 +26,7 @@ const ThemeContextCSS = styled.div<{
       ${SemanticColors.secondaryActive}: ${theme.palette.secondaryActive};
       ${SemanticColors.secondaryDisabled}: ${theme.palette.secondaryDisabled};
       ${SemanticColors.shadow}: ${theme.palette.shadow};
+      ${SemanticColors.error}: ${theme.palette.error};
 
       ${VIEW_PORT_WIDTH}: calc(100vw - var(${SCROLL_BAR_WIDTH}));
     `;

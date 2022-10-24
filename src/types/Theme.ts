@@ -16,7 +16,8 @@ export class Theme {
             primaryDisabled: pallate.primaryDisabled ?? pallate.primary,
             secondary: pallate.secondary ?? pallate.primary,
             secondaryActive: pallate.secondaryActive ?? pallate.primaryActive,
-            secondaryDisabled: pallate.secondaryDisabled ?? pallate.primaryDisabled
+            secondaryDisabled: pallate.secondaryDisabled ?? pallate.primaryDisabled,
+            error: pallate.error ?? '#ED4337'
         }
     }
 }
