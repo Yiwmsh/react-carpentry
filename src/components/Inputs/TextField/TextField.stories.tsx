@@ -87,6 +87,8 @@ export const Validation: Story = () => {
     }
   };
 
+  // TODO I'd like to incorperate some of these validation steps.
+
   return (
     <ThemeContext theme={darkTheme}>
       <Card centered="both" width="500px" height="500px">
@@ -119,6 +121,40 @@ export const Validation: Story = () => {
             <Button type="submit">Submit</Button>
           </form>
           <br />
+        </CardBody>
+      </Card>
+    </ThemeContext>
+  );
+};
+
+// TODO I'd like to figure out how to make this clear-on-focus feature a baked-in option.
+
+export const ClearOnFocus: Story = () => {
+  const [text, setText] = React.useState("Default text");
+
+  return (
+    <ThemeContext theme={darkTheme}>
+      <Card centered="both" width="500px" height="500px">
+        <CardBody>
+          <TextField
+            label="Clicking in this input should clear it."
+            defaultValue={text}
+            onFocus={() => setText("")}
+            value={text}
+            onBlur={() => {
+              if (text === "") {
+                setText("Default text");
+              }
+            }}
+            onChange={setText}
+            renderLabel={(props, label) => (
+              <CustomLabel {...props}>{label}</CustomLabel>
+            )}
+          />
+          <br />
+          <TextContent>
+            <p>You entered: {text}</p>
+          </TextContent>
         </CardBody>
       </Card>
     </ThemeContext>
