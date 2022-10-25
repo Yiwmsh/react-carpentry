@@ -43,19 +43,30 @@ export const Primary: Story = () => {
   );
 };
 
-export const PasswordInput: Story = () => {
+// TODO isRequired is not properly invalidating empty inputs.
+
+export const Validation: Story = () => {
   const [text, setText] = React.useState("");
   return (
     <ThemeContext theme={darkTheme}>
       <Card centered="both" width="500px" height="500px">
         <CardBody>
+          <TextContent>This Input Is Pattern Matched</TextContent>
           <form>
             <TextField
-              label="This Input Is Pattern Matched"
+              label="Email"
+              placeholder="Enter your email"
+              type="email"
+              isRequired
+              pattern="[\w]*@[a-zA-Z]*\.[a-z]{2,}"
+            />
+            <TextField
+              label="Password"
               onChange={setText}
               placeholder="Enter your password"
               type="password"
               isRequired
+              validationState="invalid"
               description="Password must be at least 8 characters, and include at least one uppercase and lowercase letter, one number, and one special character."
               pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W])[A-Za-z\d\W]{8,}$"
             />

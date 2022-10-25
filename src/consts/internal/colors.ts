@@ -11,7 +11,8 @@ export const LightPalette: ColorPalette = {
     secondaryActive: "#0047d9",
     secondaryDisabled: "#002e6f",
     text: "#000000",
-    altText: "#FFFFFF"
+    altText: "#FFFFFF",
+    error: '#ED6767',
 }
 
 export const DarkPalette: ColorPalette = {
@@ -26,5 +27,6 @@ export const DarkPalette: ColorPalette = {
     secondaryActive: "#0047d9",
     secondaryDisabled: "#002e6f",
     text: "#FFFFFF",
-    altText: "#FFFFFF"
+    altText: "#FFFFFF",
+    error: '#ED6767',
 }

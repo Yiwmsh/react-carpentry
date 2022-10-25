@@ -3,6 +3,7 @@ import React, { CSSProperties, DOMAttributes } from "react";
 import { AriaTextFieldOptions, useTextField } from "react-aria";
 import { SemanticColors } from "../../../types/Color";
 import { TextContent } from "../../Displays/TextContent/TextContent";
+import { motion } from "framer-motion/dist/framer-motion";
 
 // TODO I am not pleased with my use of <any> here.
 interface TextFieldProps extends AriaTextFieldOptions<"input"> {
@@ -39,7 +40,7 @@ const TextFieldContainer = styled.div`
 
 const TextFieldLabel = styled.label``;
 
-const TextFieldInput = styled.input`
+const TextFieldInput = styled(motion.input)`
   color: var(${SemanticColors.text});
   border: transparent;
   border-bottom: 1px solid var(${SemanticColors.text});
@@ -84,7 +85,14 @@ export const TextField: React.FC<TextFieldProps> = ({
 
   if (renderInput === undefined) {
     renderInput = (props, ref) => {
-      return <TextFieldInput {...props} ref={ref} />;
+      return (
+        <TextFieldInput
+          {...props}
+          ref={ref}
+          initial={{ opacity: 0.4, scale: 1 }}
+          whileFocus={{ opacity: 1, scale: 1.02 }}
+        />
+      );
     };
   }
 
