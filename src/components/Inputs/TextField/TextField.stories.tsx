@@ -1,5 +1,6 @@
 import { Story } from "@storybook/react";
 import React from "react";
+import { ValidationState } from "react-types";
 import { ThemeContext } from "../../ThemeContext";
 import { TextField } from "./TextField";
 import { Card } from "../../Containers/Card/Card";
@@ -47,7 +48,45 @@ export const Primary: Story = () => {
 
 export const Validation: Story = () => {
   const [passwordInput, setPasswordInput] = React.useState("");
+  const [passwordValidity, setPasswordValidity] =
+    React.useState(ValidationState);
+  const [passwordErrorMessage, setPasswordErrorMessage] = React.useState("");
+
   const [emailInput, setEmailInput] = React.useState("");
+  const [emailValidity, setEmailValidity] = React.useState(ValidationState);
+  const [emailErrorMessage, setEmailErrorMessage] = React.useState("");
+
+  const validateEmail = () => {
+    const emailRegex = /[\w]*@[a-zA-Z]*\.[a-z]{2,}/g;
+
+    if (emailInput === "") {
+      setEmailValidity("invalid");
+      setEmailErrorMessage("You must enter an email.");
+    } else if (emailInput.match(emailRegex) === null) {
+      setEmailValidity("invalid");
+      setEmailErrorMessage("Please enter a valid email.");
+    } else {
+      setEmailValidity("valid");
+    }
+  };
+
+  const validatePassword = () => {
+    const passwordRegex =
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W])[A-Za-z\d\W]{8,}$/g;
+
+    if (passwordInput === "") {
+      setPasswordValidity("invalid");
+      setPasswordErrorMessage("You must enter a password.");
+    } else if (passwordInput.match(passwordRegex) === null) {
+      setPasswordValidity("invalid");
+      setPasswordErrorMessage(
+        "Your password must fulfill the above requirements."
+      );
+    } else {
+      setPasswordValidity("valid");
+    }
+  };
+
   return (
     <ThemeContext theme={darkTheme}>
       <Card centered="both" width="500px" height="500px">
@@ -56,6 +95,9 @@ export const Validation: Story = () => {
           <form>
             <TextField
               onChange={setEmailInput}
+              onBlur={validateEmail}
+              validationState={emailValidity}
+              errorMessage={emailErrorMessage}
               label="Email"
               placeholder="Enter your email"
               type="email"
@@ -65,11 +107,14 @@ export const Validation: Story = () => {
             <TextField
               label="Password"
               onChange={setPasswordInput}
+              onBlur={validatePassword}
+              validationState={passwordValidity}
               placeholder="Enter your password"
               type="password"
               isRequired
               description="Password must be at least 8 characters, and include at least one uppercase and lowercase letter, one number, and one special character."
               pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W])[A-Za-z\d\W]{8,}$"
+              errorMessage={passwordErrorMessage}
             />
             <Button type="submit">Submit</Button>
           </form>

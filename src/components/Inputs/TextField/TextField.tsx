@@ -9,7 +9,8 @@ import { motion } from "framer-motion/dist/framer-motion";
 interface TextFieldProps extends AriaTextFieldOptions<"input"> {
   renderLabel?: (
     props: DOMAttributes<any>,
-    label: React.ReactNode
+    label: React.ReactNode,
+    isRequired?: boolean
   ) => React.ReactNode;
   renderInput?: (
     props: React.InputHTMLAttributes<HTMLInputElement>,
@@ -51,6 +52,9 @@ const TextFieldInput = styled(motion.input)`
   &:invalid {
     border-bottom: 1px solid var(${SemanticColors.error});
   }
+
+  &:valid {
+  }
 `;
 
 const TextFieldDescription = styled.div`
@@ -68,16 +72,20 @@ export const TextField: React.FC<TextFieldProps> = ({
   renderError,
   ...rest
 }) => {
-  const { label, errorMessage, description } = rest;
+  const { label, errorMessage, description, validationState, isRequired } =
+    rest;
   const ref = React.useRef(null);
   const { labelProps, inputProps, descriptionProps, errorMessageProps } =
     useTextField(rest, ref);
 
   if (renderLabel === undefined) {
-    renderLabel = (props) => {
+    renderLabel = (props, label) => {
       return (
         <TextFieldLabel {...props}>
-          <TextContent>{label}</TextContent>
+          <TextContent>
+            {label}
+            {isRequired && " *"}
+          </TextContent>
         </TextFieldLabel>
       );
     };
@@ -110,7 +118,7 @@ export const TextField: React.FC<TextFieldProps> = ({
     renderError = (props, errorMessage) => {
       return (
         <TextFieldErrorMessage {...props}>
-          <TextContent>{errorMessage}</TextContent>
+          <TextContent color={SemanticColors.error}>{errorMessage}</TextContent>
         </TextFieldErrorMessage>
       );
     };
@@ -118,10 +126,12 @@ export const TextField: React.FC<TextFieldProps> = ({
 
   return (
     <TextFieldContainer>
-      {renderLabel(labelProps, label)}
+      {renderLabel(labelProps, label, isRequired)}
       {renderInput(inputProps, ref)}
-      {rest.description && renderDescription(descriptionProps, description)}
-      {rest.errorMessage && renderError(errorMessageProps, errorMessage)}
+      {description && renderDescription(descriptionProps, description)}
+      {errorMessage &&
+        validationState === "invalid" &&
+        renderError(errorMessageProps, errorMessage)}
     </TextFieldContainer>
   );
 };

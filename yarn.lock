@@ -12197,6 +12197,11 @@ react-stately@^3.18.0:
     "@react-stately/tree" "^3.3.4"
     "@react-types/shared" "^3.15.0"
 
+react-types@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/react-types/-/react-types-0.1.0.tgz#f64c8c70b4aedfb66ab8d4def138e284cbc33380"
+  integrity sha512-DLZO8SdRSpyG0MpryDBCWgl3vlKRObZGNRwDmo43i9zFh5npnZCGq+PlYY8yWlQ9bjqeZyDH0Yi2gqc3H4ZWkQ==
+
 react@^18.2.0:
   version "18.2.0"
   resolved "https://registry.yarnpkg.com/react/-/react-18.2.0.tgz#555bd98592883255fa00de14f1151a917b5d77d5"
