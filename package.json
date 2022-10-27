@@ -19,7 +19,6 @@
   "dependencies": {
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
-    "@enact/storybook-utils": "^5.0.0",
     "@types/react": "^18.0.21",
     "framer-motion": "^7.5.2",
     "postcss-jsx": "^0.36.4",
@@ -35,6 +34,7 @@
     "@babel/core": "^7.19.3",
     "@babel/preset-env": "^7.19.4",
     "@babel/preset-react": "^7.18.6",
+    "@enact/storybook-utils": "^5.0.0",
     "@emotion/babel-plugin": "^11.10.2",
     "@storybook/addon-a11y": "^6.5.12",
     "@storybook/addon-actions": "^6.5.12",
