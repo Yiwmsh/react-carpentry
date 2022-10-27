@@ -1,11 +1,11 @@
 {
-  "name": "react-carpentry",
+  "name": "@yiwmsh/react-carpentry",
   "version": "0.0.1",
   "description": "React component library for my personal projects",
   "main": "index.ts",
   "repository": { 
-  "type": "git",  
-  "url": "https://github.com/Yiwmsh/react-carpentry"
+    "type": "git",  
+    "url": "https://github.com/Yiwmsh/react-carpentry"
 },
   "author": {
     "name": "Whismy",
