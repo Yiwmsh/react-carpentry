@@ -44,7 +44,7 @@ export const Primary: Story = () => {
   );
 };
 
-// TODO isRequired is not properly invalidating empty inputs.
+// TODO isRequired only marks a TextField as invalid after it has been focused at least once.
 
 export const Validation: Story = () => {
   const [passwordInput, setPasswordInput] = React.useState("");
