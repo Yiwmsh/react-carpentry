@@ -4,7 +4,7 @@ export declare const CardToolbar: import("@emotion/styled").StyledComponent<{
     theme?: import("@emotion/react").Theme | undefined;
     as?: import("react").ElementType<any> | undefined;
 } & {
-    justifyContent?: "flex-start" | "flex-end" | "center" | "space-between" | "space-around" | "space-evenly" | undefined;
+    justifyContent?: "space-around" | "space-between" | "space-evenly" | "center" | "flex-end" | "flex-start" | undefined;
     backgroundColor?: SemanticColors | undefined;
     textColor?: SemanticColors | undefined;
     border?: boolean | undefined;
