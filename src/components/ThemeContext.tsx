@@ -9,6 +9,8 @@ import {
 import { SemanticColors } from "../types/Color";
 import { Theme } from "../types/Theme";
 
+// TODO Error color is not being defaulted or injected or something.
+
 const ThemeContextCSS = styled.div<{
   theme: Theme;
 }>`
