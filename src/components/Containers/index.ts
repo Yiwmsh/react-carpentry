@@ -1,5 +1,5 @@
 export * from "./ButtonBank/ButtonBank"
-export * from "./Card/Card"
+export * from "./Card"
 export * from "./Modal/Modal"
 export * from "./Navbar/Navbar"
 export * from "./PageBody/PageBody"
