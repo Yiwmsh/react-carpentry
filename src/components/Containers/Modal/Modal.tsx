@@ -66,27 +66,26 @@ export const Modal: React.FC<ModalProps> = ({
         {state.isOpen && (
           <OverlayContainer>
             <ThemeContext theme={theme}>
-              <div {...underlayProps}>
-                <Underlay
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                >
-                  <FocusScope contain restoreFocus autoFocus>
-                    <div {...overlayProps} {...modalProps}>
-                      <ModalContainer
-                        ref={ref}
-                        initial={{ y: "100vh" }}
-                        animate={{ y: 0 }}
-                        transition={{ duration: 0.6, type: "spring" }}
-                        exit={{ y: "100vh" }}
-                      >
-                        {children}
-                      </ModalContainer>
-                    </div>
-                  </FocusScope>
-                </Underlay>
-              </div>
+              <Underlay
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                {...underlayProps}
+              >
+                <FocusScope contain restoreFocus autoFocus>
+                  <ModalContainer
+                    {...overlayProps}
+                    {...modalProps}
+                    ref={ref}
+                    initial={{ y: "100vh" }}
+                    animate={{ y: 0 }}
+                    transition={{ duration: 0.6, type: "spring" }}
+                    exit={{ y: "100vh" }}
+                  >
+                    {children}
+                  </ModalContainer>
+                </FocusScope>
+              </Underlay>
             </ThemeContext>
           </OverlayContainer>
         )}

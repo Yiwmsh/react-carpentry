@@ -6,26 +6,21 @@ import { AriaButtonProps } from "@react-types/button";
 import { BORDER_ROUNDING } from "../../../consts/internal/measurements";
 import { motion } from "framer-motion";
 
-const ButtonStyle = styled(motion.div)<{
+const StyledButton = styled(motion.div)<{
   visible: boolean;
   display: boolean;
 }>`
+  font-size: 0.9em;
   display: ${({ display }) => (display ? "inline-block" : "none")};
   visibility: ${({ visible }) => (visible ? "visible" : "hidden")};
-  cursor: pointer;
-  border-radius: ${BORDER_ROUNDING};
-`;
-
-const HiddenButton = styled.button`
-  background-color: transparent;
-  line-height: 1.5em;
-  text-decoration: none;
-  padding: 0.5em 1em;
-  border: transparent;
-  color: var(${SemanticColors.altText});
   font-weight: 600;
+  color: var(${SemanticColors.altText});
   cursor: pointer;
-
+  line-height: 1.5em;
+  border-radius: ${BORDER_ROUNDING};
+  border: transparent;
+  padding: 0.5em 1em;
+  text-decoration: none;
   :focus {
     border: none;
     outline: none;
@@ -81,12 +76,13 @@ export const Button: React.FC<ButtonProps> = ({
       };
 
   return (
-    <ButtonStyle
+    <StyledButton
+      ref={ref}
+      {...rest}
+      {...buttonProps}
       {...animations}
       display={display ?? true}
       visible={visible ?? true}
-    >
-      <HiddenButton ref={ref} {...rest} {...buttonProps} />
-    </ButtonStyle>
+    />
   );
 };
