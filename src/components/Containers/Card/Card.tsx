@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 import { BORDER_ROUNDING } from "../../../consts/internal/measurements";
 import { SemanticColors } from "../../../types/Color";
 
-interface CardProps {
+export interface CardProps {
   maxWidth?: string;
   width?: string;
   maxHeight?: string;

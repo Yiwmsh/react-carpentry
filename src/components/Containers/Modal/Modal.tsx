@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { motion, AnimatePresence } from "framer-motion/dist/framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   FocusScope,
   OverlayContainer,
@@ -10,11 +10,10 @@ import {
 } from "react-aria";
 import { OverlayTriggerState, useOverlayTriggerState } from "react-stately";
 import React from "react";
-import { Button } from "../../Inputs";
 import { Theme } from "../../../types";
 import { ThemeContext } from "../../ThemeContext";
 
-interface ModalProps extends AriaOverlayProps {
+export interface ModalProps extends AriaOverlayProps {
   children?: React.ReactNode;
   theme: Theme;
   state: OverlayTriggerState;
@@ -67,26 +66,27 @@ export const Modal: React.FC<ModalProps> = ({
         {state.isOpen && (
           <OverlayContainer>
             <ThemeContext theme={theme}>
-              <Underlay
-                {...underlayProps}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-              >
-                <FocusScope contain restoreFocus autoFocus>
-                  <ModalContainer
-                    {...overlayProps}
-                    {...modalProps}
-                    ref={ref}
-                    initial={{ y: "100vh" }}
-                    animate={{ y: 0 }}
-                    transition={{ duration: 0.6, type: "spring" }}
-                    exit={{ y: "100vh" }}
-                  >
-                    {children}
-                  </ModalContainer>
-                </FocusScope>
-              </Underlay>
+              <div {...underlayProps}>
+                <Underlay
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                >
+                  <FocusScope contain restoreFocus autoFocus>
+                    <div {...overlayProps} {...modalProps}>
+                      <ModalContainer
+                        ref={ref}
+                        initial={{ y: "100vh" }}
+                        animate={{ y: 0 }}
+                        transition={{ duration: 0.6, type: "spring" }}
+                        exit={{ y: "100vh" }}
+                      >
+                        {children}
+                      </ModalContainer>
+                    </div>
+                  </FocusScope>
+                </Underlay>
+              </div>
             </ThemeContext>
           </OverlayContainer>
         )}
