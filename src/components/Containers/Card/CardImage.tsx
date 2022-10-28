@@ -19,7 +19,7 @@ const CardImageSubtitle = styled.p`
   margin-bottom: ${CARD_CONTENT_VERTICAL_MARGIN};
 `;
 
-interface CardImageProps extends TextContentProps {
+export interface CardImageProps extends TextContentProps {
   src: string;
   alt: string;
   subtitle?: string;

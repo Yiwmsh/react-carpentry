@@ -4,7 +4,7 @@ import React from "react";
 import { VIEW_PORT_WIDTH } from "../../../consts/internal/measurements";
 import { Color } from "../../../types/Color";
 
-interface ScrollSectionProps
+export interface ScrollSectionProps
   extends React.DetailedHTMLProps<
     React.HTMLAttributes<HTMLElement>,
     HTMLElement
