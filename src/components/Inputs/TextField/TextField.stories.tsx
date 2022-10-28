@@ -32,7 +32,7 @@ export const Primary: Story = () => {
           <TextField
             label="Test Input Label"
             onChange={setText}
-            placeholder="Tell me a joke"
+            placeholder="Placeholder"
           />
           <br />
           <TextContent>
