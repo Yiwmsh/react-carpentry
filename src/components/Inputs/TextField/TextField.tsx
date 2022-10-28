@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import React, { CSSProperties, DOMAttributes } from "react";
+import React, { DOMAttributes } from "react";
 import { AriaTextFieldOptions, useTextField } from "react-aria";
 import { SemanticColors } from "../../../types/Color";
 import { TextContent } from "../../Displays/TextContent/TextContent";
