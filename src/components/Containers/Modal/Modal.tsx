@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion/dist/framer-motion";
 import {
   FocusScope,
   OverlayContainer,
@@ -8,7 +8,7 @@ import {
   usePreventScroll,
   AriaOverlayProps,
 } from "react-aria";
-import { OverlayTriggerState, useOverlayTriggerState } from "react-stately";
+import { OverlayTriggerState } from "react-stately";
 import React from "react";
 import { Theme } from "../../../types";
 import { ThemeContext } from "../../ThemeContext";
