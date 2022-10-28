@@ -1,8 +1,8 @@
 declare type RGB = `rgb(${number}, ${number}, ${number})`;
 declare type RGBA = `rgba(${number}, ${number}, ${number}, ${number})`;
 declare type HEX = `#${string}`;
-declare type Color = RGB | RGBA | HEX;
-interface ColorPalette {
+export declare type Color = RGB | RGBA | HEX;
+export interface ColorPalette {
     background: Color;
     midground?: Color;
     foreground?: Color;
@@ -17,7 +17,7 @@ interface ColorPalette {
     secondaryDisabled?: Color;
     error?: Color;
 }
-declare enum SemanticColors {
+export declare enum SemanticColors {
     background = "--background-color",
     midground = "--midground-color",
     foreground = "--foreground-color",
@@ -32,10 +32,4 @@ declare enum SemanticColors {
     secondaryDisabled = "--secondaryDisabled",
     error = "--error-color"
 }
-
-declare class Theme {
-    palette: ColorPalette;
-    constructor(pallate: ColorPalette);
-}
-
-export { Color, ColorPalette, SemanticColors, Theme };
+export {};

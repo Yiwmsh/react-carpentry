@@ -1,9 +1,10 @@
 {
   "name": "@yiwmsh/react-carpentry",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
   "description": "React component library for my personal projects",
-  "main": "./src/index.ts",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/Yiwmsh/react-carpentry"
@@ -21,8 +22,9 @@
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
     "@rollup/plugin-commonjs": "^23.0.2",
+    "@rollup/plugin-typescript": "^9.0.2",
     "@types/react": "^18.0.24",
-    "framer-motion": "^4.1.17",
+    "framer-motion": "^7.6.2",
     "postcss-jsx": "^0.36.4",
     "postcss-syntax": "^0.36.2",
     "prop-types": "^15.8.1",
@@ -30,6 +32,8 @@
     "react-aria": "^3.19.0",
     "react-dom": "^18.2.0",
     "react-stately": "^3.18.0",
+    "rollup-plugin-dts": "^5.0.0",
+    "rollup-plugin-terser": "^7.0.2",
     "typescript": "^4.8.4"
   },
   "devDependencies": {
