@@ -4,27 +4,34 @@ import { SemanticColors } from "../../../types/Color";
 import { useButton } from "react-aria";
 import { AriaButtonProps } from "@react-types/button";
 import { BORDER_ROUNDING } from "../../../consts/internal/measurements";
-import { motion } from "framer-motion/dist/framer-motion";
+import { motion } from "framer-motion";
 
-const StyledButton = styled(motion.div)<{
+const ButtonStyle = styled(motion.div)<{
   visible: boolean;
   display: boolean;
 }>`
   font-size: 0.9em;
   display: ${({ display }) => (display ? "inline-block" : "none")};
   visibility: ${({ visible }) => (visible ? "visible" : "hidden")};
-  font-weight: 600;
-  color: var(${SemanticColors.altText});
   cursor: pointer;
-  line-height: 1.5em;
   border-radius: ${BORDER_ROUNDING};
   border: transparent;
-  padding: 0.5em 1em;
   text-decoration: none;
   :focus {
     border: none;
     outline: none;
   }
+`;
+
+const HiddenButton = styled.button`
+  background-color: transparent;
+  border: transparent;
+  border-radius: ${BORDER_ROUNDING};
+  padding: 0.5em 1em;
+  font-weight: 600;
+  line-height: 1.5em;
+  cursor: pointer;
+  color: var(${SemanticColors.altText});
 `;
 
 export interface ButtonProps extends AriaButtonProps {
@@ -76,13 +83,12 @@ export const Button: React.FC<ButtonProps> = ({
       };
 
   return (
-    <StyledButton
-      ref={ref}
-      {...rest}
-      {...buttonProps}
+    <ButtonStyle
       {...animations}
       display={display ?? true}
       visible={visible ?? true}
-    />
+    >
+      <HiddenButton ref={ref} {...rest} {...buttonProps} />
+    </ButtonStyle>
   );
 };

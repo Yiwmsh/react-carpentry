@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { motion, AnimatePresence } from "framer-motion/dist/framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   FocusScope,
   OverlayContainer,
@@ -19,7 +19,7 @@ export interface ModalProps extends AriaOverlayProps {
   state: OverlayTriggerState;
 }
 
-const Underlay = styled(motion.div)`
+const Underlay = styled.div`
   position: fixed;
   z-index: 100;
   width: 100%;
@@ -34,7 +34,7 @@ const Underlay = styled(motion.div)`
   justify-content: center;
 `;
 
-const ModalContainer = styled(motion.div)`
+const ModalContainer = styled.div`
   position: fixed;
   z-index: 100;
   width: 100%;
@@ -66,26 +66,30 @@ export const Modal: React.FC<ModalProps> = ({
         {state.isOpen && (
           <OverlayContainer>
             <ThemeContext theme={theme}>
-              <Underlay
+              <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                {...underlayProps}
               >
-                <FocusScope contain restoreFocus autoFocus>
-                  <ModalContainer
-                    {...overlayProps}
-                    {...modalProps}
-                    ref={ref}
-                    initial={{ y: "100vh" }}
-                    animate={{ y: 0 }}
-                    transition={{ duration: 0.6, type: "spring" }}
-                    exit={{ y: "100vh" }}
-                  >
-                    {children}
-                  </ModalContainer>
-                </FocusScope>
-              </Underlay>
+                <Underlay {...underlayProps}>
+                  <FocusScope contain restoreFocus autoFocus>
+                    <motion.div
+                      initial={{ y: "100vh" }}
+                      animate={{ y: 0 }}
+                      transition={{ duration: 0.6, type: "spring" }}
+                      exit={{ y: "100vh" }}
+                    >
+                      <ModalContainer
+                        {...overlayProps}
+                        {...modalProps}
+                        ref={ref}
+                      >
+                        {children}
+                      </ModalContainer>
+                    </motion.div>
+                  </FocusScope>
+                </Underlay>
+              </motion.div>
             </ThemeContext>
           </OverlayContainer>
         )}

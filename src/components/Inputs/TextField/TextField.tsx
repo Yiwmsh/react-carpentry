@@ -3,7 +3,7 @@ import React, { DOMAttributes } from "react";
 import { AriaTextFieldOptions, useTextField } from "react-aria";
 import { SemanticColors } from "../../../types/Color";
 import { TextContent } from "../../Displays/TextContent/TextContent";
-import { motion } from "framer-motion/dist/framer-motion";
+import { motion } from "framer-motion";
 
 // TODO I am not pleased with my use of <any> here.
 interface TextFieldProps extends AriaTextFieldOptions<"input"> {
@@ -94,8 +94,13 @@ export const TextField: React.FC<TextFieldProps> = ({
   if (renderInput === undefined) {
     renderInput = (props, ref) => {
       return (
+        /* This sucks and I hate it, but I need to move on from this issue for now. 
+        The problem is that framer-motion and react-aria have a lot of overlap in their props types.
+        */
+        //@ts-ignore
         <TextFieldInput
           {...props}
+          placeholder={props.placeholder}
           ref={ref}
           initial={{ opacity: 0.4, scale: 1 }}
           whileFocus={{ opacity: 1, scale: 1.02 }}
