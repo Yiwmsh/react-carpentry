@@ -7,6 +7,8 @@ export interface TextContentProps {
 }
 
 export const TextContent = styled.div<TextContentProps>`
+  height: min-content;
+  width: min-content;
   margin: 0;
   color: var(
     ${({ altColor, color }) => {
