@@ -42,6 +42,7 @@ export const ThemeContext: React.FC<{
   const scrollbarWidth = window.innerWidth - document.body.clientWidth;
   document.body.style.setProperty(SCROLL_BAR_WIDTH, `${scrollbarWidth}`);
   document.body.style.setProperty("padding", "0px");
+  document.body.style.setProperty("margin", "0px");
 
   return (
     <ThemeContextCSS theme={theme}>
