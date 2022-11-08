@@ -1,6 +1,6 @@
 {
   "name": "@yiwmsh/react-carpentry",
-  "version": "0.2.10",
+  "version": "0.2.11",
   "type": "module",
   "description": "React component library for my personal projects",
   "main": "dist/cjs/index.js",
@@ -10,12 +10,9 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/Yiwmsh/react-carpentry"
+    "url": "git+https://github.com/Yiwmsh/react-carpentry.git"
   },
-  "author": {
-    "name": "Whismy",
-    "email": "lonelevelsands@gmail.com"
-  },
+  "author": "Whismy <lonelevelsands@gmail.com>",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/yiwmsh"
   },
@@ -75,5 +72,10 @@
     "build": "rollup -c",
     "rollup": "rollup",
     "storybook": "start-storybook -p 6006"
-  }
+  },
+  "types": "./dist/cjs/index.d.ts",
+  "bugs": {
+    "url": "https://github.com/Yiwmsh/react-carpentry/issues"
+  },
+  "homepage": "https://github.com/Yiwmsh/react-carpentry#readme"
 }
