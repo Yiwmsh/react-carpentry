@@ -1,10 +1,13 @@
 {
   "name": "@yiwmsh/react-carpentry",
-  "version": "0.2.9",
+  "version": "0.2.10",
   "type": "module",
   "description": "React component library for my personal projects",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
+  "files": [
+    "dist"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/Yiwmsh/react-carpentry"
