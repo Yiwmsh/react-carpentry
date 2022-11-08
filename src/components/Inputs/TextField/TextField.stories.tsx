@@ -1,6 +1,5 @@
 import { Story } from "@storybook/react";
 import React from "react";
-import { ValidationState } from "react-types";
 import { ThemeContext } from "../../ThemeContext";
 import { TextField } from "./TextField";
 import { Card } from "../../Containers/Card/Card";
@@ -46,27 +45,35 @@ export const Primary: Story = () => {
 
 // TODO isRequired only marks a TextField as invalid after it has been focused at least once.
 
+enum ValidationStateOption {
+  Valid = "valid",
+  Invalid = "invalid",
+}
+
 export const Validation: Story = () => {
   const [passwordInput, setPasswordInput] = React.useState("");
-  const [passwordValidity, setPasswordValidity] =
-    React.useState(ValidationState);
+  const [passwordValidity, setPasswordValidity] = React.useState(
+    ValidationStateOption.Invalid
+  );
   const [passwordErrorMessage, setPasswordErrorMessage] = React.useState("");
 
   const [emailInput, setEmailInput] = React.useState("");
-  const [emailValidity, setEmailValidity] = React.useState(ValidationState);
+  const [emailValidity, setEmailValidity] = React.useState(
+    ValidationStateOption.Invalid
+  );
   const [emailErrorMessage, setEmailErrorMessage] = React.useState("");
 
   const validateEmail = () => {
     const emailRegex = /[\w]*@[a-zA-Z]*\.[a-z]{2,}/g;
 
     if (emailInput === "") {
-      setEmailValidity("invalid");
+      setEmailValidity(ValidationStateOption.Invalid);
       setEmailErrorMessage("You must enter an email.");
     } else if (emailInput.match(emailRegex) === null) {
-      setEmailValidity("invalid");
+      setEmailValidity(ValidationStateOption.Invalid);
       setEmailErrorMessage("Please enter a valid email.");
     } else {
-      setEmailValidity("valid");
+      setEmailValidity(ValidationStateOption.Valid);
     }
   };
 
@@ -75,15 +82,15 @@ export const Validation: Story = () => {
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W])[A-Za-z\d\W]{8,}$/g;
 
     if (passwordInput === "") {
-      setPasswordValidity("invalid");
+      setPasswordValidity(ValidationStateOption.Invalid);
       setPasswordErrorMessage("You must enter a password.");
     } else if (passwordInput.match(passwordRegex) === null) {
-      setPasswordValidity("invalid");
+      setPasswordValidity(ValidationStateOption.Invalid);
       setPasswordErrorMessage(
         "Your password must fulfill the above requirements."
       );
     } else {
-      setPasswordValidity("valid");
+      setPasswordValidity(ValidationStateOption.Invalid);
     }
   };
 

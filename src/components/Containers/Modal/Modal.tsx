@@ -74,6 +74,7 @@ export const Modal: React.FC<ModalProps> = ({
                 <Underlay {...underlayProps}>
                   <FocusScope contain restoreFocus autoFocus>
                     <motion.div
+                      style={{ width: "100%", height: "100%" }}
                       initial={{ y: "100vh" }}
                       animate={{ y: 0 }}
                       transition={{ duration: 0.6, type: "spring" }}
