@@ -5,5 +5,6 @@ export interface LinkButtonProps {
     image: string;
     title?: string;
     backgroundColor?: Color;
+    target?: string;
 }
 export declare const LinkButton: React.FC<LinkButtonProps>;

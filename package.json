@@ -1,6 +1,6 @@
 {
   "name": "@yiwmsh/react-carpentry",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "type": "module",
   "description": "React component library for my personal projects",
   "main": "dist/cjs/index.js",

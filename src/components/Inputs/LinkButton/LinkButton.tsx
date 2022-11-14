@@ -9,6 +9,7 @@ export interface LinkButtonProps {
   image: string;
   title?: string;
   backgroundColor?: Color;
+  target?: string;
 }
 
 const Logo = styled.img`
@@ -35,6 +36,7 @@ export const LinkButton: React.FC<LinkButtonProps> = ({
   image,
   title,
   backgroundColor,
+  target = "_blank",
 }) => {
   return (
     <StyledLinkButton
@@ -43,6 +45,7 @@ export const LinkButton: React.FC<LinkButtonProps> = ({
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
       backgroundColor={backgroundColor}
+      target={target}
     >
       <Logo src={image} />
       <TextContent>{title}</TextContent>
