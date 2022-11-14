@@ -9,10 +9,20 @@ export default {
   component: LinkButton,
 };
 
-const gitHubIcon = "../../resources/GitHub-Mark-32px.png";
+const gitHubIcon = "https://cdn-icons-png.flaticon.com/512/25/25231.png";
 
 export const Primary: Story = () => (
   <ThemeContext theme={lightTheme}>
-    <img src={gitHubIcon} />
+    <LinkButton
+      title="Github"
+      href="https://github.com/Yiwmsh"
+      image={gitHubIcon}
+    />
+  </ThemeContext>
+);
+
+export const WithoutTitle: Story = () => (
+  <ThemeContext theme={lightTheme}>
+    <LinkButton href="https://github.com/Yiwmsh" image={gitHubIcon} />
   </ThemeContext>
 );
