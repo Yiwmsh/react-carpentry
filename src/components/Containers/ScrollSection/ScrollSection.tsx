@@ -18,6 +18,7 @@ const StyledScrollSection = styled.section<{
   backgroundImg?: string;
 }>`
   height: 100vh;
+  overflow: hidden;
   width: var(${VIEW_PORT_WIDTH});
   scroll-snap-align: center;
 
