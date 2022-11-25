@@ -1,0 +1,88 @@
+import styled from "@emotion/styled";
+import {
+  AnimationControls,
+  motion,
+  TargetAndTransition,
+  useAnimation,
+  VariantLabels,
+  Variants,
+} from "framer-motion";
+import React from "react";
+import { useInView } from "react-intersection-observer";
+
+// TODO Animation does not reset when component is set to `display: none` and then toggle back on again.
+
+export interface AnimatedTextProps {
+  text: string;
+  animationVariants: Variants | undefined;
+  display?: boolean;
+}
+
+const Character = styled(motion.span)`
+  display: inline-block;
+  margin-right: -0.05em;
+`;
+
+const Word = styled(motion.span)`
+  display: inline-block;
+  margin-right: 0.25em;
+  white-space: nowrap;
+`;
+
+const AnimatedTextWrapper = styled.div<{ display: boolean }>`
+  ${({ display }) => (display ? "" : "display: none;")}
+`;
+
+export const AnimatedText: React.FC<AnimatedTextProps> = ({
+  text,
+  animationVariants,
+  display = true,
+}) => {
+  const controls = useAnimation();
+  const { ref, inView } = useInView({
+    threshold: 0.5,
+    triggerOnce: true,
+  });
+
+  React.useEffect(() => {
+    if (inView) {
+      controls.start("visible");
+    }
+    if (!inView) {
+      controls.start("hidden");
+    }
+  }, [controls, inView]);
+
+  return (
+    <AnimatedTextWrapper display={display}>
+      {text.split(" ").map((word, index) => {
+        return (
+          <Word
+            ref={ref}
+            aria-hidden="true"
+            key={index}
+            initial="hidden"
+            animate={controls}
+            variants={{}}
+            transition={{
+              delayChildren: index * 0.25,
+              staggerChildren: 0.05,
+            }}
+          >
+            {word.split("").map((char, index) => {
+              return (
+                <Character
+                  variants={animationVariants}
+                  key={index}
+                  aria-hidden="true"
+                >
+                  {char}
+                </Character>
+              );
+            })}
+          </Word>
+        );
+      })}
+    </AnimatedTextWrapper>
+  );
+};
