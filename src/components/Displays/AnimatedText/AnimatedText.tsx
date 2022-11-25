@@ -12,6 +12,8 @@ import { useInView } from "react-intersection-observer";
 
 // TODO Animation does not reset when component is set to `display: none` and then toggle back on again.
 
+// TODO Allow the child delay offset to be passed as a prop.
+
 export interface AnimatedTextProps {
   text: string;
   animationVariants: Variants | undefined;
