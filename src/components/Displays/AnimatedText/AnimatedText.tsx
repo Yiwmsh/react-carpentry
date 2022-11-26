@@ -14,10 +14,13 @@ import { useInView } from "react-intersection-observer";
 
 // TODO Allow the child delay offset to be passed as a prop.
 
+// TODO Allow the whole component to be delayed.
+
 export interface AnimatedTextProps {
   text: string;
   animationVariants: Variants | undefined;
   display?: boolean;
+  delay?: number;
 }
 
 const Character = styled(motion.span)`
@@ -39,6 +42,7 @@ export const AnimatedText: React.FC<AnimatedTextProps> = ({
   text,
   animationVariants,
   display = true,
+  delay,
 }) => {
   const controls = useAnimation();
   const { ref, inView } = useInView({
@@ -67,7 +71,7 @@ export const AnimatedText: React.FC<AnimatedTextProps> = ({
             animate={controls}
             variants={{}}
             transition={{
-              delayChildren: index * 0.25,
+              delayChildren: delay ?? 0 + index * 0.25,
               staggerChildren: 0.05,
             }}
           >
