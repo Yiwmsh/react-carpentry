@@ -117,7 +117,38 @@ A ButtonBank is a row-flex container with a slight gap, intended to contain one 
 
 ### TextContent
 
-Text content is a simple wrapping div for any text elements such as `<Title>` or `<p>` that injects your Theme's text color into any text within it. You can tell it to use your alternate text color instead with `altColor`, or you can manually set the text color you want to use with `color={SemanticColors.color}`
+`TextContent` is a simple wrapping div for any text elements such as `<Title>` or `<p>` that injects your Theme's text color into any text within it. You can tell it to use your alternate text color instead with `altColor`, or you can manually set the text color you want to use with `color={SemanticColors.color}`
+
+### AnimatedText
+
+`AnimatedText` is a simple component that animates each character in a string it is given, and staggers them. Provide it with a string, a set of animation variants, and an aria-label for accessibility.
+
+![animated text](https://user-images.githubusercontent.com/110123778/204064399-9f797295-bd4a-4c2c-99ab-1f39d81f90dd.gif)
+```jsx
+<AnimatedText
+        aria-label="Test!"
+        text="Test!"
+        animationVariants={{
+          hidden: {
+            opacity: 0,
+
+            y: `0.25em`,
+          },
+
+          visible: {
+            opacity: 1,
+
+            y: `0em`,
+
+            transition: {
+              duration: 1,
+
+              ease: [0.2, 0.65, 0.3, 0.9],
+            },
+          },
+        }}
+      />
+```
 
 ### Title
 
