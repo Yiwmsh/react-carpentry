@@ -1,5 +1,5 @@
 {
-  "name": "@yiwmsh/react-carpentry",
+  "name": "@chrisellis/react-carpentry",
   "version": "0.4.0",
   "type": "module",
   "description": "React component library for my personal projects",
@@ -13,9 +13,6 @@
     "url": "git+https://github.com/Yiwmsh/react-carpentry.git"
   },
   "author": "Whismy <lonelevelsands@gmail.com>",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/yiwmsh"
-  },
   "license": "MIT",
   "private": false,
   "dependencies": {
