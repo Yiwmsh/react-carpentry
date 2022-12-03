@@ -1,6 +1,6 @@
 {
   "name": "@chrisellis/react-carpentry",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "type": "module",
   "description": "React component library for my personal projects",
   "main": "dist/cjs/index.js",
