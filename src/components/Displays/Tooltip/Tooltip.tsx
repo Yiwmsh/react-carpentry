@@ -18,7 +18,15 @@ export interface TooltipWrapperProps extends TooltipTriggerProps {
 }
 
 const TooltipContainer = styled.span`
-  position: relative;
+  position: absolute;
+  left: 5px;
+  top: 100%;
+  max-width: 150;
+  margin-top: 10px;
+  background-color: white;
+  color: black;
+  padding: 5px;
+  border: 1px solid gray;
 `;
 
 const TooltipWrapperContainer = styled.span``;

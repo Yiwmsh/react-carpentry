@@ -23,6 +23,7 @@ export const Primary: Story = () => (
         );
       }}
       tooltip="Tooltip!"
+      delay={0}
     />
   </ThemeContext>
 );
